@@ -1,0 +1,1079 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ABORT	include/rebar.hrl	/^-define(ABORT(Str, Args), rebar_utils:abort(Str, Args)).$/;"	d
+APPUPFILEFORMAT	src/rebar_appups.erl	/^-define(APPUPFILEFORMAT, "%% appup generated for ~p by rebar (~p)~n"$/;"	d
+BUILD_TIME	src/rebar.erl	/^-define(BUILD_TIME, "undefined").$/;"	d
+CHILD	priv/templates/simpleapp_sup.erl	/^-define(CHILD(I, Type), {I, {I, start_link, []}, permanent, 5000, Type, [I]}).$/;"	d
+COMPILE_ERROR	inttest/tplugins/tplugins_rt.erl	/^-define(COMPILE_ERROR,$/;"	d
+CONSOLE	include/rebar.hrl	/^-define(CONSOLE(Str, Args), io:format(Str, Args)).$/;"	d
+DEBUG	include/rebar.hrl	/^-define(DEBUG(Str, Args), rebar_log:log(debug, Str, Args)).$/;"	d
+DIR_TREE	test/rebar_file_utils_tests.erl	/^-define(DIR_TREE, [{d,"source",[{f,"file1"},$/;"	d
+ERROR	include/rebar.hrl	/^-define(ERROR(Str, Args), rebar_log:log(error, Str, Args)).$/;"	d
+EUNIT_DIR	src/rebar_eunit.erl	/^-define(EUNIT_DIR, ".eunit").$/;"	d
+FAIL	include/rebar.hrl	/^-define(FAIL, throw({error, failed})).$/;"	d
+FILE_CONTENT	test/rebar_file_utils_tests.erl	/^-define(FILE_CONTENT, <<"1234567890">>).$/;"	d
+FMT	include/rebar.hrl	/^-define(FMT(Str, Args), lists:flatten(io_lib:format(Str, Args))).$/;"	d
+HELLO	inttest/tdeps1/c.hrl	/^-define(HELLO, hello).$/;"	d
+HELLO	inttest/tdeps2/c.hrl	/^-define(HELLO, hello).$/;"	d
+INDENTATION	src/getopt.erl	/^-define(INDENTATION, 3).$/;"	d
+INFO	include/rebar.hrl	/^-define(INFO(Str, Args), rebar_log:log(info, Str, Args)).$/;"	d
+IS_OPT_SPEC	src/getopt.erl	/^-define(IS_OPT_SPEC(Opt), (tuple_size(Opt) =:= ?OPT_HELP)).$/;"	d
+OPT_ARG	src/getopt.erl	/^-define(OPT_ARG, 4).$/;"	d
+OPT_HELP	src/getopt.erl	/^-define(OPT_HELP, 5).$/;"	d
+OPT_LONG	src/getopt.erl	/^-define(OPT_LONG, 3).$/;"	d
+OPT_NAME	src/getopt.erl	/^-define(OPT_NAME, 1).$/;"	d
+OPT_SHORT	src/getopt.erl	/^-define(OPT_SHORT, 2).$/;"	d
+REBAR_SCRIPT	test/rebar_eunit_tests.erl	/^-define(REBAR_SCRIPT, "..\/rebar").$/;"	d
+SERVER	priv/templates/simplefsm.erl	/^-define(SERVER, ?MODULE).$/;"	d
+SERVER	priv/templates/simplesrv.erl	/^-define(SERVER, ?MODULE).$/;"	d
+TAB_LENGTH	src/getopt.erl	/^-define(TAB_LENGTH, 8).$/;"	d
+TEMPLATE_RE	src/rebar_templater.erl	/^-define(TEMPLATE_RE, ".*\\\\.template\\$").$/;"	d
+TMP	src/rebar_upgrade.erl	/^-define(TMP, "_tmp").$/;"	d
+TMP_DIR	test/rebar_eunit_tests.erl	/^-define(TMP_DIR, "tmp_eunit\/").$/;"	d
+TMP_DIR	test/rebar_file_utils_tests.erl	/^-define(TMP_DIR, "tmp_file_utils").$/;"	d
+VCS_INFO	src/rebar.erl	/^-define(VCS_INFO, "undefined").$/;"	d
+WARN	include/rebar.hrl	/^-define(WARN(Str, Args), rebar_log:log(warn, Str, Args)).$/;"	d
+_handle	priv/templates/basicnif.c	/^} {{module}}_handle;$/;"	t	typeref:struct:__anon2	file:
+_myfunction	priv/templates/basicnif.c	/^static ERL_NIF_TERM {{module}}_myfunction(ErlNifEnv* env, int argc,$/;"	f
+_new	priv/templates/basicnif.c	/^static ERL_NIF_TERM {{module}}_new(ErlNifEnv* env, int argc,$/;"	f
+_resource_cleanup	priv/templates/basicnif.c	/^static void {{module}}_resource_cleanup(ErlNifEnv* env, void* arg)$/;"	f
+a	inttest/tdeps1/a.erl	/^-module(a).$/;"	m
+abnfc_is_present	src/rebar_abnfc_compiler.erl	/^abnfc_is_present() ->$/;"	f	module:rebar_abnfc_compiler
+abnfc_opts	src/rebar_abnfc_compiler.erl	/^abnfc_opts(Config) ->$/;"	f	module:rebar_abnfc_compiler
+abort	src/rebar_utils.erl	/^abort(String, Args) ->$/;"	f	module:rebar_utils
+acc_deps	src/rebar_deps.erl	/^acc_deps(find, avail, Dep, AppDir, {Avail, Missing}) ->$/;"	f	module:rebar_deps
+acc_deps	src/rebar_deps.erl	/^acc_deps(find, missing, Dep, AppDir, {Avail, Missing}) ->$/;"	f	module:rebar_deps
+acc_deps	src/rebar_deps.erl	/^acc_deps(read, _, Dep, AppDir, Acc) ->$/;"	f	module:rebar_deps
+acc_modules	src/rebar_core.erl	/^acc_modules(Modules, Command, Config, File) ->$/;"	f	module:rebar_core
+acc_modules	src/rebar_core.erl	/^acc_modules([Module | Rest], Command, Config, File, Acc) ->$/;"	f	module:rebar_core
+acc_modules	src/rebar_core.erl	/^acc_modules([], _Command, _Config, _File, Acc) ->$/;"	f	module:rebar_core
+add_option_help	src/getopt.erl	/^add_option_help(Prefix, Help, Acc) when is_list(Help), Help =\/= [] ->$/;"	f	module:getopt
+add_option_help	src/getopt.erl	/^add_option_help(_Opt, _Prefix, Acc) ->$/;"	f	module:getopt
+add_option_with_arg	src/getopt.erl	/^add_option_with_arg({Name, _Short, _Long, ArgSpec, _Help} = OptSpec, Arg, OptAcc) ->$/;"	f	module:getopt
+add_option_with_assigned_arg	src/getopt.erl	/^add_option_with_assigned_arg({Name, _Short, _Long, ArgSpec, _Help}, Arg, OptAcc) ->$/;"	f	module:getopt
+add_option_with_implicit_arg	src/getopt.erl	/^add_option_with_implicit_arg({Name, _Short, _Long, ArgSpec, _Help}, OptAcc) ->$/;"	f	module:getopt
+add_option_with_implicit_incrementable_arg	src/getopt.erl	/^add_option_with_implicit_incrementable_arg({Name, _Short, _Long, ArgSpec, _Help}, OptAcc) ->$/;"	f	module:getopt
+align_notcovered_count	src/rebar_eunit.erl	/^align_notcovered_count(Module, Covered, NotCovered, false) ->$/;"	f	module:rebar_eunit
+align_notcovered_count	src/rebar_eunit.erl	/^align_notcovered_count(Module, Covered, NotCovered, true) ->$/;"	f	module:rebar_eunit
+all	inttest/ct1/test_SUITE.erl	/^all() ->$/;"	f	module:test_SUITE
+all	inttest/ct2/foo_SUITE.erl	/^all() -> [foo].$/;"	f	module:foo_SUITE
+all	priv/templates/ctsuite.erl	/^all() ->$/;"	f
+app	inttest/bug_5_rt.erl	/^app(Name) ->$/;"	f	module:bug_5_rt
+app	inttest/ct1/ct1_rt.erl	/^app(Name) ->$/;"	f	module:ct1_rt
+app	inttest/ct2/ct2_rt.erl	/^app(Name) ->$/;"	f	module:ct2_rt
+app	inttest/t_custom_config/t_custom_config_rt.erl	/^app(Name, Modules) ->$/;"	f	module:t_custom_config_rt
+app	inttest/tdeps1/tdeps1_rt.erl	/^app(Name, Modules) ->$/;"	f	module:tdeps1_rt
+app	inttest/tdeps2/tdeps2_rt.erl	/^app(Name, Modules) ->$/;"	f	module:tdeps2_rt
+app	inttest/thooks/thooks_rt.erl	/^app(Name, Modules) ->$/;"	f	module:thooks_rt
+app	inttest/tplugins/tplugins_rt.erl	/^app(Name, Modules) ->$/;"	f	module:tplugins_rt
+app_applications	src/rebar_app_utils.erl	/^app_applications(AppFile) ->$/;"	f	module:rebar_app_utils
+app_config	priv/templates/simplenode.windows.start_erl.cmd	/^    @set app_config=%node_root%\\etc\\app.config$/;"	v
+app_config	priv/templates/simplenode.windows.start_erl.cmd	/^    @set app_config=%releases_dir%\\%release_version%\\sys.config$/;"	v
+app_exists	src/rebar_reltool.erl	/^app_exists(App, Server) when is_atom(App) ->$/;"	f	module:rebar_reltool
+app_exists	src/rebar_reltool.erl	/^app_exists(AppTuple, Server) when is_tuple(AppTuple) ->$/;"	f	module:rebar_reltool
+app_list_diff	src/rebar_appups.erl	/^app_list_diff(List1, List2) ->$/;"	f	module:rebar_appups
+app_name	src/rebar_app_utils.erl	/^app_name(AppFile) ->$/;"	f	module:rebar_app_utils
+app_src_to_app	src/rebar_app_utils.erl	/^app_src_to_app(Filename) ->$/;"	f	module:rebar_app_utils
+app_vars_from_config_file	src/rebar_eunit.erl	/^app_vars_from_config_file(File, App) ->$/;"	f	module:rebar_eunit
+app_vsn	src/rebar_app_utils.erl	/^app_vsn(AppFile) ->$/;"	f	module:rebar_app_utils
+append_default_options	src/getopt.erl	/^append_default_options([], OptAcc) ->$/;"	f	module:getopt
+append_default_options	src/getopt.erl	/^append_default_options([_Head | Tail], OptAcc) ->$/;"	f	module:getopt
+append_default_options	src/getopt.erl	/^append_default_options([{Name, _Short, _Long, {_Type, DefaultArg}, _Help} | Tail], OptAcc) ->$/;"	f	module:getopt
+apply_app_vars	src/rebar_otp_app.erl	/^apply_app_vars([], AppData) ->$/;"	f	module:rebar_otp_app
+apply_app_vars	src/rebar_otp_app.erl	/^apply_app_vars([{Key, Value} | Rest], AppData) ->$/;"	f	module:rebar_otp_app
+apply_defaults	src/rebar_port_compiler.erl	/^apply_defaults(Vars, Defaults) ->$/;"	f	module:rebar_port_compiler
+apply_file_info	src/rebar_reltool.erl	/^apply_file_info(InFile, OutFile) ->$/;"	f	module:rebar_reltool
+apply_hook	src/rebar_core.erl	/^apply_hook({Env, {Arch, Command, Hook}}) ->$/;"	f	module:rebar_core
+apply_hook	src/rebar_core.erl	/^apply_hook({Env, {Command, Hook}}) ->$/;"	f	module:rebar_core
+apply_hooks	src/rebar_core.erl	/^apply_hooks(Mode, Config, Command, Env) ->$/;"	f	module:rebar_core
+arg_spec_type	src/getopt.erl	/^arg_spec_type(Type) when is_atom(Type) ->$/;"	f	module:getopt
+arg_spec_type	src/getopt.erl	/^arg_spec_type({Type, _DefaultArg}) ->$/;"	f	module:getopt
+args	priv/templates/simplenode.windows.start_erl.cmd	/^@set args="%*"$/;"	v
+asn_generated_files	src/rebar_asn1_compiler.erl	/^asn_generated_files(AsnDir, SrcDir, IncDir) ->$/;"	f	module:rebar_asn1_compiler
+assert_dirs_in	test/rebar_eunit_tests.erl	/^assert_dirs_in(Name, [Dir|T]) ->$/;"	f	module:rebar_eunit_tests
+assert_dirs_in	test/rebar_eunit_tests.erl	/^assert_dirs_in(_, []) -> [].$/;"	f	module:rebar_eunit_tests
+assert_files_in	test/rebar_eunit_tests.erl	/^assert_files_in(Name, [File|T]) ->$/;"	f	module:rebar_eunit_tests
+assert_files_in	test/rebar_eunit_tests.erl	/^assert_files_in(_, []) -> [].$/;"	f	module:rebar_eunit_tests
+assert_files_in	test/rebar_file_utils_tests.erl	/^assert_files_in(Name, [File|T]) ->$/;"	f	module:rebar_file_utils_tests
+assert_files_in	test/rebar_file_utils_tests.erl	/^assert_files_in(_, []) -> [].$/;"	f	module:rebar_file_utils_tests
+assert_files_not_in	test/rebar_eunit_tests.erl	/^assert_files_not_in(Name, [File|T]) ->$/;"	f	module:rebar_eunit_tests
+assert_files_not_in	test/rebar_eunit_tests.erl	/^assert_files_not_in(_, []) -> [].$/;"	f	module:rebar_eunit_tests
+assert_files_not_in	test/rebar_file_utils_tests.erl	/^assert_files_not_in(Name, [File|T]) ->$/;"	f	module:rebar_file_utils_tests
+assert_files_not_in	test/rebar_file_utils_tests.erl	/^assert_files_not_in(_, []) -> [].$/;"	f	module:rebar_file_utils_tests
+assert_full_coverage	test/rebar_eunit_tests.erl	/^assert_full_coverage(Mod) ->$/;"	f	module:rebar_eunit_tests
+assert_rebar_runs	test/rebar_eunit_tests.erl	/^assert_rebar_runs() ->$/;"	f	module:rebar_eunit_tests
+attach	priv/templates/simplenode.windows.runner.cmd	/^:attach$/;"	l
+bad_plugin	inttest/tplugins/bad_plugin.erl	/^-module(bad_plugin).$/;"	m
+base_config	src/rebar_config.erl	/^base_config(#config{opts=Opts0}) ->$/;"	f	module:rebar_config
+basic_setup_test_	test/rebar_eunit_tests.erl	/^basic_setup_test_() ->$/;"	f	module:rebar_eunit_tests
+basic_test	priv/templates/basicnif.erl	/^basic_test() ->$/;"	f
+beam_file	src/rebar_protobuffs_compiler.erl	/^beam_file(Proto) ->$/;"	f	module:rebar_protobuffs_compiler
+beam_to_mod	src/rebar_utils.erl	/^beam_to_mod(Dir, Filename) ->$/;"	f	module:rebar_utils
+beams	src/rebar_utils.erl	/^beams(Dir) ->$/;"	f	module:rebar_utils
+boot_file	priv/templates/simplenode.windows.start_erl.cmd	/^@set boot_file=%releases_dir%\\%release_version%\\%node_name%$/;"	v
+boot_files	src/rebar_upgrade.erl	/^boot_files(TargetDir, Ver, Name) ->$/;"	f	module:rebar_upgrade
+bs	src/rebar_config.erl	/^bs(Vars) ->$/;"	f	module:rebar_config
+bug_5_rt	inttest/bug_5_rt.erl	/^-module(bug_5_rt).$/;"	m
+cache_escript_files	src/rebar_templater.erl	/^cache_escript_files() ->$/;"	f	module:rebar_templater
+ceiling	src/getopt.erl	/^ceiling(X) ->$/;"	f	module:getopt
+check	src/rebar.erl	/^check-deps                           Display to be fetched dependencies$/;"	f	module:rebar
+check_exports_not_used	src/rebar_xref.erl	/^check_exports_not_used() ->$/;"	f	module:rebar_xref
+check_file	src/rebar_erlc_compiler.erl	/^check_file(File) ->$/;"	f	module:rebar_erlc_compiler
+check_files	src/rebar_erlc_compiler.erl	/^check_files(FileList) ->$/;"	f	module:rebar_erlc_compiler
+check_log	src/rebar_ct.erl	/^check_log(RawLog) ->$/;"	f	module:rebar_ct
+check_loop	src/rebar_subdirs.erl	/^check_loop(Cwd) ->$/;"	f	module:rebar_subdirs
+check_query	src/rebar_xref.erl	/^check_query({Query, Value}) ->$/;"	f	module:rebar_xref
+check_undefined_function_calls	src/rebar_xref.erl	/^check_undefined_function_calls() ->$/;"	f	module:rebar_xref
+check_versions	src/rebar_require_vsn.erl	/^check_versions(Config) ->$/;"	f	module:rebar_require_vsn
+check_vsn	src/rebar_reltool.erl	/^check_vsn() ->$/;"	f	module:rebar_reltool
+choose_module_set	src/rebar_core.erl	/^choose_module_set([], _Dir) ->$/;"	f	module:rebar_core
+choose_module_set	src/rebar_core.erl	/^choose_module_set([{Type, Modules} | Rest], Dir) ->$/;"	f	module:rebar_core
+clean	src/rebar.erl	/^clean                                Clean$/;"	f	module:rebar
+clean	src/rebar_asn1_compiler.erl	/^clean(_Config, _AppFile) ->$/;"	f	module:rebar_asn1_compiler
+clean	src/rebar_cleaner.erl	/^clean(Config, _AppFile) ->$/;"	f	module:rebar_cleaner
+clean	src/rebar_erlc_compiler.erl	/^clean(_Config, _AppFile) ->$/;"	f	module:rebar_erlc_compiler
+clean	src/rebar_escripter.erl	/^clean(Config, AppFile) ->$/;"	f	module:rebar_escripter
+clean	src/rebar_eunit.erl	/^clean(_Config, _File) ->$/;"	f	module:rebar_eunit
+clean	src/rebar_otp_app.erl	/^clean(_Config, File) ->$/;"	f	module:rebar_otp_app
+clean	src/rebar_port_compiler.erl	/^clean(Config, AppFile) ->$/;"	f	module:rebar_port_compiler
+clean	src/rebar_protobuffs_compiler.erl	/^clean(_Config, _AppFile) ->$/;"	f	module:rebar_protobuffs_compiler
+clean	src/rebar_reltool.erl	/^clean(_Config, ReltoolFile) ->$/;"	f	module:rebar_reltool
+cleanup	src/rebar_upgrade.erl	/^cleanup(NameVer) ->$/;"	f	module:rebar_upgrade
+clear_log	src/rebar_ct.erl	/^clear_log(RawLog) ->$/;"	f	module:rebar_ct
+code_change	priv/templates/simplefsm.erl	/^code_change(_OldVsn, StateName, State, _Extra) ->$/;"	f
+code_change	priv/templates/simplesrv.erl	/^code_change(_OldVsn, State, _Extra) ->$/;"	f
+code_change	test/upgrade_project/apps/dummy/src/dummy_server.erl	/^code_change(_OldVsn, State, _Extra) ->$/;"	f	module:dummy_server
+code_path	src/rebar_xref.erl	/^code_path() ->$/;"	f	module:rebar_xref
+collect_files	src/rebar_ct.erl	/^collect_files(F, Acc) ->$/;"	f	module:rebar_ct
+collect_glob	src/rebar_ct.erl	/^collect_glob(Cwd, Glob) ->$/;"	f	module:rebar_ct
+command_names	src/rebar.erl	/^command_names() ->$/;"	f	module:rebar
+commands	src/rebar.erl	/^commands() ->$/;"	f	module:rebar
+compile	src/mustache.erl	/^compile(Body) when is_list(Body) ->$/;"	f	module:mustache
+compile	src/mustache.erl	/^compile(Mod) ->$/;"	f	module:mustache
+compile	src/mustache.erl	/^compile(Mod, File) ->$/;"	f	module:mustache
+compile	src/rebar.erl	/^compile                              Compile sources$/;"	f	module:rebar
+compile	src/rebar_abnfc_compiler.erl	/^compile(Config, _AppFile) ->$/;"	f	module:rebar_abnfc_compiler
+compile	src/rebar_asn1_compiler.erl	/^compile(Config, _AppFile) ->$/;"	f	module:rebar_asn1_compiler
+compile	src/rebar_base_compiler.erl	/^compile(Source, Config, CompileFn) ->$/;"	f	module:rebar_base_compiler
+compile	src/rebar_deps.erl	/^compile(Config, AppFile) ->$/;"	f	module:rebar_deps
+compile	src/rebar_erlc_compiler.erl	/^compile(Config, _AppFile) ->$/;"	f	module:rebar_erlc_compiler
+compile	src/rebar_erlydtl_compiler.erl	/^compile(Config, _AppFile) ->$/;"	f	module:rebar_erlydtl_compiler
+compile	src/rebar_lfe_compiler.erl	/^compile(Config, _AppFile) ->$/;"	f	module:rebar_lfe_compiler
+compile	src/rebar_neotoma_compiler.erl	/^compile(Config, _AppFile) ->$/;"	f	module:rebar_neotoma_compiler
+compile	src/rebar_otp_app.erl	/^compile(Config, File) ->$/;"	f	module:rebar_otp_app
+compile	src/rebar_port_compiler.erl	/^compile(Config, AppFile) ->$/;"	f	module:rebar_port_compiler
+compile	src/rebar_protobuffs_compiler.erl	/^compile(_Config, _AppFile) ->$/;"	f	module:rebar_protobuffs_compiler
+compile	src/rebar_require_vsn.erl	/^compile(Config, _) ->$/;"	f	module:rebar_require_vsn
+compile_abnfc	src/rebar_abnfc_compiler.erl	/^compile_abnfc(Source, _Target, Config) ->$/;"	f	module:rebar_abnfc_compiler
+compile_asn1	src/rebar_asn1_compiler.erl	/^compile_asn1(Source, Target, Config) ->$/;"	f	module:rebar_asn1_compiler
+compile_dtl	src/rebar_erlydtl_compiler.erl	/^compile_dtl(Source, Target, Config) ->$/;"	f	module:rebar_erlydtl_compiler
+compile_each	src/rebar_base_compiler.erl	/^compile_each([Source | Rest], Config, CompileFn) ->$/;"	f	module:rebar_base_compiler
+compile_each	src/rebar_base_compiler.erl	/^compile_each([], _Config, _CompileFn) ->$/;"	f	module:rebar_base_compiler
+compile_each	src/rebar_port_compiler.erl	/^compile_each([Source | Rest], Type, Env, NewBins) ->$/;"	f	module:rebar_port_compiler
+compile_each	src/rebar_port_compiler.erl	/^compile_each([], _Type, _Env, NewBins) ->$/;"	f	module:rebar_port_compiler
+compile_each	src/rebar_protobuffs_compiler.erl	/^compile_each([]) ->$/;"	f	module:rebar_protobuffs_compiler
+compile_each	src/rebar_protobuffs_compiler.erl	/^compile_each([{Proto, Beam, Hrl} | Rest]) ->$/;"	f	module:rebar_protobuffs_compiler
+compile_lfe	src/rebar_lfe_compiler.erl	/^compile_lfe(Source, _Target, Config) ->$/;"	f	module:rebar_lfe_compiler
+compile_mib	src/rebar_erlc_compiler.erl	/^compile_mib(Source, Target, Config) ->$/;"	f	module:rebar_erlc_compiler
+compile_neo	src/rebar_neotoma_compiler.erl	/^compile_neo(Source, Target, Config) ->$/;"	f	module:rebar_neotoma_compiler
+compile_priority	src/rebar_erlc_compiler.erl	/^compile_priority(File) ->$/;"	f	module:rebar_erlc_compiler
+compile_queue	src/rebar_base_compiler.erl	/^compile_queue(Pids, Targets) ->$/;"	f	module:rebar_base_compiler
+compile_queue	src/rebar_base_compiler.erl	/^compile_queue([], []) ->$/;"	f	module:rebar_base_compiler
+compile_section	src/mustache.erl	/^compile_section(Name, Content, State) ->$/;"	f	module:mustache
+compile_sources	src/rebar_port_compiler.erl	/^compile_sources(OldSources, _Specs, SharedEnv) -> % deprecated$/;"	f	module:rebar_port_compiler
+compile_sources	src/rebar_port_compiler.erl	/^compile_sources([], Specs, SharedEnv) ->        % port_spec$/;"	f	module:rebar_port_compiler
+compile_tag	src/mustache.erl	/^compile_tag("!", _Content, _State) ->$/;"	f	module:mustache
+compile_tag	src/mustache.erl	/^compile_tag("{", Content, State) ->$/;"	f	module:mustache
+compile_tag	src/mustache.erl	/^compile_tag(none, Content, State) ->$/;"	f	module:mustache
+compile_tags	src/mustache.erl	/^compile_tags(T, State) ->$/;"	f	module:mustache
+compile_worker	src/rebar_base_compiler.erl	/^compile_worker(QueuePid, Config, CompileFn) ->$/;"	f	module:rebar_base_compiler
+compile_xrl	src/rebar_erlc_compiler.erl	/^compile_xrl(Source, Target, Config) ->$/;"	f	module:rebar_erlc_compiler
+compile_xrl_yrl	src/rebar_erlc_compiler.erl	/^compile_xrl_yrl(Source, Target, Opts, Mod) ->$/;"	f	module:rebar_erlc_compiler
+compile_yrl	src/rebar_erlc_compiler.erl	/^compile_yrl(Source, Target, Config) ->$/;"	f	module:rebar_erlc_compiler
+compiler	src/mustache.erl	/^compiler(T, State) ->$/;"	f	module:mustache
+compiler	src/rebar_port_compiler.erl	/^compiler(".C")   -> "$CXX";$/;"	f	module:rebar_port_compiler
+compiler	src/rebar_port_compiler.erl	/^compiler(".CPP") -> "$CXX";$/;"	f	module:rebar_port_compiler
+compiler	src/rebar_port_compiler.erl	/^compiler(".c++") -> "$CXX";$/;"	f	module:rebar_port_compiler
+compiler	src/rebar_port_compiler.erl	/^compiler(".cc")  -> "$CXX";$/;"	f	module:rebar_port_compiler
+compiler	src/rebar_port_compiler.erl	/^compiler(".cp")  -> "$CXX";$/;"	f	module:rebar_port_compiler
+compiler	src/rebar_port_compiler.erl	/^compiler(".cpp") -> "$CXX";$/;"	f	module:rebar_port_compiler
+compiler	src/rebar_port_compiler.erl	/^compiler(".cxx") -> "$CXX";$/;"	f	module:rebar_port_compiler
+compiler	src/rebar_port_compiler.erl	/^compiler(_)      -> "$CC".$/;"	f	module:rebar_port_compiler
+config	src/rebar_config.erl	/^-record(config, { dir :: file:filename(),$/;"	r
+console	priv/templates/simplenode.windows.runner.cmd	/^:console$/;"	l
+consult	src/rebar_templater.erl	/^consult(Bin) when is_binary(Bin)->$/;"	f	module:rebar_templater
+consult	src/rebar_templater.erl	/^consult(Cont, Str, Acc) ->$/;"	f	module:rebar_templater
+consult	src/rebar_templater.erl	/^consult(Str) when is_list(Str) ->$/;"	f	module:rebar_templater
+consult_and_eval	src/rebar_config.erl	/^consult_and_eval(File, Script) ->$/;"	f	module:rebar_config
+consult_file	src/rebar_config.erl	/^consult_file(File) ->$/;"	f	module:rebar_config
+cover_analyze	src/rebar_eunit.erl	/^cover_analyze(Config, Modules, SrcModules) ->$/;"	f	module:rebar_eunit
+cover_analyze	src/rebar_eunit.erl	/^cover_analyze(_Config, [], _SrcModules) ->$/;"	f	module:rebar_eunit
+cover_analyze_mod	src/rebar_eunit.erl	/^cover_analyze_mod(Module) ->$/;"	f	module:rebar_eunit
+cover_close	src/rebar_eunit.erl	/^cover_close(F) ->$/;"	f	module:rebar_eunit
+cover_close	src/rebar_eunit.erl	/^cover_close(not_enabled) ->$/;"	f	module:rebar_eunit
+cover_coverage_test_	test/rebar_eunit_tests.erl	/^cover_coverage_test_() ->$/;"	f	module:rebar_eunit_tests
+cover_file	src/rebar_eunit.erl	/^cover_file(Module) ->$/;"	f	module:rebar_eunit
+cover_init	src/rebar_eunit.erl	/^cover_init(Config, BeamFiles) ->$/;"	f	module:rebar_eunit
+cover_init	src/rebar_eunit.erl	/^cover_init(false, _BeamFiles) ->$/;"	f	module:rebar_eunit
+cover_init	src/rebar_eunit.erl	/^cover_init(true, BeamFiles) ->$/;"	f	module:rebar_eunit
+cover_print_coverage	src/rebar_eunit.erl	/^cover_print_coverage(Coverage) ->$/;"	f	module:rebar_eunit
+cover_test_	test/rebar_eunit_tests.erl	/^cover_test_() ->$/;"	f	module:rebar_eunit_tests
+cover_with_suite_test_	test/rebar_eunit_tests.erl	/^cover_with_suite_test_() ->$/;"	f	module:rebar_eunit_tests
+cover_write_index	src/rebar_eunit.erl	/^cover_write_index(Coverage, SrcModules) ->$/;"	f	module:rebar_eunit
+cover_write_index_section	src/rebar_eunit.erl	/^cover_write_index_section(F, SectionName, Coverage) ->$/;"	f	module:rebar_eunit
+cover_write_index_section	src/rebar_eunit.erl	/^cover_write_index_section(_F, _SectionName, []) ->$/;"	f	module:rebar_eunit
+cp_r	src/rebar_file_utils.erl	/^cp_r(Sources, Dest) ->$/;"	f	module:rebar_file_utils
+cp_r_dir_to_dir_test_	test/rebar_file_utils_tests.erl	/^cp_r_dir_to_dir_test_() ->$/;"	f	module:rebar_file_utils_tests
+cp_r_file_to_dir_test_	test/rebar_file_utils_tests.erl	/^cp_r_file_to_dir_test_() ->$/;"	f	module:rebar_file_utils_tests
+cp_r_file_to_file_test_	test/rebar_file_utils_tests.erl	/^cp_r_file_to_file_test_() ->$/;"	f	module:rebar_file_utils_tests
+cp_r_overwrite_dir_fail_test_	test/rebar_file_utils_tests.erl	/^cp_r_overwrite_dir_fail_test_() ->$/;"	f	module:rebar_file_utils_tests
+cp_r_overwrite_dir_test_	test/rebar_file_utils_tests.erl	/^cp_r_overwrite_dir_test_() ->$/;"	f	module:rebar_file_utils_tests
+cp_r_overwrite_file_fail_test_	test/rebar_file_utils_tests.erl	/^cp_r_overwrite_file_fail_test_() ->$/;"	f	module:rebar_file_utils_tests
+cp_r_overwrite_file_test_	test/rebar_file_utils_tests.erl	/^cp_r_overwrite_file_test_() ->$/;"	f	module:rebar_file_utils_tests
+cp_r_wildcard_dir_to_dir_test_	test/rebar_file_utils_tests.erl	/^cp_r_wildcard_dir_to_dir_test_() ->$/;"	f	module:rebar_file_utils_tests
+cp_r_wildcard_file_to_dir_test_	test/rebar_file_utils_tests.erl	/^cp_r_wildcard_file_to_dir_test_() ->$/;"	f	module:rebar_file_utils_tests
+cp_r_win32	src/rebar_file_utils.erl	/^cp_r_win32(Source,Dest) ->$/;"	f	module:rebar_file_utils
+cp_r_win32	src/rebar_file_utils.erl	/^cp_r_win32({false, Source} = S,{true, DestDir}) ->$/;"	f	module:rebar_file_utils
+cp_r_win32	src/rebar_file_utils.erl	/^cp_r_win32({false, Source},{false, Dest}) ->$/;"	f	module:rebar_file_utils
+cp_r_win32	src/rebar_file_utils.erl	/^cp_r_win32({true, SourceDir}, {false, DestDir}) ->$/;"	f	module:rebar_file_utils
+cp_r_win32	src/rebar_file_utils.erl	/^cp_r_win32({true, SourceDir}, {true, DestDir}) ->$/;"	f	module:rebar_file_utils
+create	src/rebar.erl	/^create      template= [var=foo,...]  Create skel based on template and vars$/;"	f	module:rebar
+create	src/rebar.erl	/^create-app  [appid=myapp]            Create simple app skel$/;"	f	module:rebar
+create	src/rebar.erl	/^create-node [nodeid=mynode]          Create simple node skel$/;"	f	module:rebar
+create	src/rebar_templater.erl	/^create(_Config, _) ->$/;"	f	module:rebar_templater
+create_RELEASES	src/rebar_reltool.erl	/^create_RELEASES(TargetDir, RelName, RelVsn) ->$/;"	f	module:rebar_reltool
+ct	src/rebar.erl	/^ct          [suites=] [case=]        Run common_test suites in .\/test$/;"	f	module:rebar
+ct	src/rebar_ct.erl	/^ct(Config, File) ->$/;"	f	module:rebar_ct
+ct1_rt	inttest/ct1/ct1_rt.erl	/^-module(ct1_rt).$/;"	m
+ct2_rt	inttest/ct2/ct2_rt.erl	/^-module(ct2_rt).$/;"	m
+custom_config	inttest/t_custom_config/custom_config.erl	/^-module(custom_config).$/;"	m
+debug_level	src/rebar_log.erl	/^debug_level() -> 3.$/;"	f	module:rebar_log
+default	src/rebar_abnfc_compiler.erl	/^default(doc_root) -> "src";$/;"	f	module:rebar_abnfc_compiler
+default	src/rebar_abnfc_compiler.erl	/^default(module_ext) -> "".$/;"	f	module:rebar_abnfc_compiler
+default	src/rebar_abnfc_compiler.erl	/^default(out_dir)  -> "src";$/;"	f	module:rebar_abnfc_compiler
+default	src/rebar_abnfc_compiler.erl	/^default(source_ext) -> ".abnf";$/;"	f	module:rebar_abnfc_compiler
+default	src/rebar_erlydtl_compiler.erl	/^default(custom_tags_dir) -> "".$/;"	f	module:rebar_erlydtl_compiler
+default	src/rebar_erlydtl_compiler.erl	/^default(doc_root) -> "templates";$/;"	f	module:rebar_erlydtl_compiler
+default	src/rebar_erlydtl_compiler.erl	/^default(module_ext) -> "_dtl";$/;"	f	module:rebar_erlydtl_compiler
+default	src/rebar_erlydtl_compiler.erl	/^default(out_dir)  -> "ebin";$/;"	f	module:rebar_erlydtl_compiler
+default	src/rebar_erlydtl_compiler.erl	/^default(source_ext) -> ".dtl";$/;"	f	module:rebar_erlydtl_compiler
+default	src/rebar_neotoma_compiler.erl	/^default(doc_root) -> "src";$/;"	f	module:rebar_neotoma_compiler
+default	src/rebar_neotoma_compiler.erl	/^default(module_ext) -> "";$/;"	f	module:rebar_neotoma_compiler
+default	src/rebar_neotoma_compiler.erl	/^default(out_dir) -> "src";$/;"	f	module:rebar_neotoma_compiler
+default	src/rebar_neotoma_compiler.erl	/^default(source_ext) -> ".peg".$/;"	f	module:rebar_neotoma_compiler
+default_env	src/rebar_port_compiler.erl	/^default_env() ->$/;"	f	module:rebar_port_compiler
+default_level	src/rebar_log.erl	/^default_level() -> error_level().$/;"	f	module:rebar_log
+define_if	src/rebar_eunit.erl	/^define_if(Def, true) -> [{d, Def}];$/;"	f	module:rebar_eunit
+define_if	src/rebar_eunit.erl	/^define_if(_Def, false) -> [].$/;"	f	module:rebar_eunit
+delayed_halt	src/rebar_utils.erl	/^delayed_halt(Code) ->$/;"	f	module:rebar_utils
+delete	src/rebar.erl	/^delete-deps                          Delete fetched dependencies$/;"	f	module:rebar
+delete_bogus_test_	test/rebar_file_utils_tests.erl	/^delete_bogus_test_() ->$/;"	f	module:rebar_file_utils_tests
+delete_dep	src/rebar_deps.erl	/^delete_dep(D) ->$/;"	f	module:rebar_deps
+delete_dir	src/rebar_erlc_compiler.erl	/^delete_dir(Dir, Subdirs) ->$/;"	f	module:rebar_erlc_compiler
+delete_dir	src/rebar_erlc_compiler.erl	/^delete_dir(Dir, []) ->$/;"	f	module:rebar_erlc_compiler
+delete_each	src/rebar_file_utils.erl	/^delete_each([File | Rest]) ->$/;"	f	module:rebar_file_utils
+delete_each	src/rebar_file_utils.erl	/^delete_each([]) ->$/;"	f	module:rebar_file_utils
+delete_each	src/rebar_protobuffs_compiler.erl	/^delete_each([File | Rest]) ->$/;"	f	module:rebar_protobuffs_compiler
+delete_each	src/rebar_protobuffs_compiler.erl	/^delete_each([]) ->$/;"	f	module:rebar_protobuffs_compiler
+delete_each_dir_win32	src/rebar_file_utils.erl	/^delete_each_dir_win32([Dir | Rest]) ->$/;"	f	module:rebar_file_utils
+delete_each_dir_win32	src/rebar_file_utils.erl	/^delete_each_dir_win32([]) -> ok;$/;"	f	module:rebar_file_utils
+delete_each_test_	test/rebar_file_utils_tests.erl	/^delete_each_test_() ->$/;"	f	module:rebar_file_utils_tests
+dep	src/rebar_deps.erl	/^-record(dep, { dir,$/;"	r
+deprecated	src/rebar_utils.erl	/^deprecated(Old, New, Config, When) ->$/;"	f	module:rebar_utils
+deprecated	src/rebar_utils.erl	/^deprecated(Old, New, Opts, When) when is_list(Opts) ->$/;"	f	module:rebar_utils
+deprecated	src/rebar_utils.erl	/^deprecated(Old, New, When) ->$/;"	f	module:rebar_utils
+dirs	src/rebar_erlc_compiler.erl	/^dirs(Dir) ->$/;"	f	module:rebar_erlc_compiler
+display_mfas	src/rebar_xref.erl	/^display_mfas([], _Message) ->$/;"	f	module:rebar_xref
+display_mfas	src/rebar_xref.erl	/^display_mfas([{_Mod, Fun, Args} = MFA | Rest], Message) ->$/;"	f	module:rebar_xref
+do_compile	src/rebar_erlydtl_compiler.erl	/^do_compile(Source, Target, Config) ->$/;"	f	module:rebar_erlydtl_compiler
+do_compile	src/rebar_neotoma_compiler.erl	/^do_compile(Source, _Target, Config) ->$/;"	f	module:rebar_neotoma_compiler
+doc	src/rebar.erl	/^doc                                  Generate Erlang program documentation$/;"	f	module:rebar
+doc	src/rebar_edoc.erl	/^doc(Config, File) ->$/;"	f	module:rebar_edoc
+doterl_compile	src/rebar_erlc_compiler.erl	/^doterl_compile(Config, OutDir) ->$/;"	f	module:rebar_erlc_compiler
+doterl_compile	src/rebar_erlc_compiler.erl	/^doterl_compile(Config, OutDir, MoreSources) ->$/;"	f	module:rebar_erlc_compiler
+download_source	src/rebar_deps.erl	/^download_source(AppDir, {bzr, Url, Rev}) ->$/;"	f	module:rebar_deps
+download_source	src/rebar_deps.erl	/^download_source(AppDir, {git, Url, ""}) ->$/;"	f	module:rebar_deps
+download_source	src/rebar_deps.erl	/^download_source(AppDir, {git, Url, Rev}) ->$/;"	f	module:rebar_deps
+download_source	src/rebar_deps.erl	/^download_source(AppDir, {git, Url, {branch, Branch}}) ->$/;"	f	module:rebar_deps
+download_source	src/rebar_deps.erl	/^download_source(AppDir, {git, Url, {tag, Tag}}) ->$/;"	f	module:rebar_deps
+download_source	src/rebar_deps.erl	/^download_source(AppDir, {git, Url}) ->$/;"	f	module:rebar_deps
+download_source	src/rebar_deps.erl	/^download_source(AppDir, {hg, Url, Rev}) ->$/;"	f	module:rebar_deps
+download_source	src/rebar_deps.erl	/^download_source(AppDir, {rsync, Url}) ->$/;"	f	module:rebar_deps
+download_source	src/rebar_deps.erl	/^download_source(AppDir, {svn, Url, Rev}) ->$/;"	f	module:rebar_deps
+dummy_app	test/upgrade_project/apps/dummy/src/dummy_app.erl	/^-module(dummy_app).$/;"	m
+dummy_server	test/upgrade_project/apps/dummy/src/dummy_server.erl	/^-module(dummy_server).$/;"	m
+dummy_sup	test/upgrade_project/apps/dummy/src/dummy_sup.erl	/^-module(dummy_sup).$/;"	m
+dump_spec	src/rebar_reltool.erl	/^dump_spec(Spec) ->$/;"	f	module:rebar_reltool
+ebin_dir	src/rebar_edoc.erl	/^ebin_dir() ->$/;"	f	module:rebar_edoc
+ebin_dir	src/rebar_eunit.erl	/^ebin_dir() ->$/;"	f	module:rebar_eunit
+ebin_modules	src/rebar_otp_app.erl	/^ebin_modules() ->$/;"	f	module:rebar_otp_app
+emulate_escript_foldl	src/rebar_utils.erl	/^emulate_escript_foldl(Fun, Acc, File) ->$/;"	f	module:rebar_utils
+end_per_group	priv/templates/ctsuite.erl	/^end_per_group(_group, Config) ->$/;"	f
+end_per_suite	priv/templates/ctsuite.erl	/^end_per_suite(_Config) ->$/;"	f
+end_per_testcase	priv/templates/ctsuite.erl	/^end_per_testcase(TestCase, Config) ->$/;"	f
+ensure_command_ran_only_once	inttest/thooks/thooks_rt.erl	/^ensure_command_ran_only_once(Command) ->$/;"	f	module:thooks_rt
+ensure_config_extension	src/rebar_eunit.erl	/^ensure_config_extension(File) ->$/;"	f	module:rebar_eunit
+ensure_dir	src/rebar_utils.erl	/^ensure_dir(Path) ->$/;"	f	module:rebar_utils
+environment_test_	test/rebar_eunit_tests.erl	/^environment_test_() ->$/;"	f	module:rebar_eunit_tests
+eqc_opts	src/rebar_eunit.erl	/^eqc_opts() ->$/;"	f	module:rebar_eunit
+erl_args	priv/templates/simplenode.windows.start_erl.cmd	/^    @set erl_args=%%I$/;"	v
+erl_exe	priv/templates/simplenode.windows.start_erl.cmd	/^@set erl_exe=%node_root%\\erts-%erts_version%\\bin\\erl.exe$/;"	v
+erl_interface_dir	src/rebar_port_compiler.erl	/^erl_interface_dir(Subdir) ->$/;"	f	module:rebar_port_compiler
+erl_opts	src/rebar_erlc_compiler.erl	/^erl_opts(Config) ->$/;"	f	module:rebar_erlc_compiler
+erl_to_mod	src/rebar_utils.erl	/^erl_to_mod(Filename) ->$/;"	f	module:rebar_utils
+erlang_cookie	priv/templates/simplenode.windows.runner.cmd	/^@for \/f "usebackq tokens=1-2" %%I in (`findstr \/b \\-setcookie %vm_args%`) do @set erlang_cookie=%%J$/;"	v
+erlydtl_opts	src/rebar_erlydtl_compiler.erl	/^erlydtl_opts(Config) ->$/;"	f	module:rebar_erlydtl_compiler
+error_level	src/rebar_log.erl	/^error_level() -> 0.$/;"	f	module:rebar_log
+erts_bin	priv/templates/simplenode.windows.runner.cmd	/^@set erts_bin=%node_root%\\erts-%erts_version%\\bin$/;"	v
+erts_dir	src/rebar_port_compiler.erl	/^erts_dir() ->$/;"	f	module:rebar_port_compiler
+escape	src/mustache.erl	/^escape(HTML) ->$/;"	f	module:mustache
+escape	src/mustache.erl	/^escape(["&" | Rest], Acc) ->$/;"	f	module:mustache
+escape	src/mustache.erl	/^escape(["<" | Rest], Acc) ->$/;"	f	module:mustache
+escape	src/mustache.erl	/^escape([">" | Rest], Acc) ->$/;"	f	module:mustache
+escape	src/mustache.erl	/^escape([X | Rest], Acc) ->$/;"	f	module:mustache
+escape	src/mustache.erl	/^escape([], Acc) ->$/;"	f	module:mustache
+escape_spaces	src/rebar_file_utils.erl	/^escape_spaces(Str) ->$/;"	f	module:rebar_file_utils
+escript_foldl	src/rebar_utils.erl	/^escript_foldl(Fun, Acc, File) ->$/;"	f	module:rebar_utils
+escriptize	src/rebar_escripter.erl	/^escriptize(Config, AppFile) ->$/;"	f	module:rebar_escripter
+eunit	src/rebar.erl	/^eunit       [suite=foo]              Run eunit [test\/foo_tests.erl] tests$/;"	f	module:rebar
+eunit	src/rebar_eunit.erl	/^eunit(Config, _AppFile) ->$/;"	f	module:rebar_eunit
+eunit	src/rebar_require_vsn.erl	/^eunit(Config, _) ->$/;"	f	module:rebar_require_vsn
+eunit_config	src/rebar_eunit.erl	/^eunit_config(Config) ->$/;"	f	module:rebar_eunit
+eunit_dir	src/rebar_eunit.erl	/^eunit_dir() ->$/;"	f	module:rebar_eunit
+eunit_test_	test/rebar_eunit_tests.erl	/^eunit_test_() ->$/;"	f	module:rebar_eunit_tests
+execute	src/rebar_core.erl	/^execute(Command, Modules, Config, ModuleFile, Env) ->$/;"	f	module:rebar_core
+execute_overlay	src/rebar_reltool.erl	/^execute_overlay([Other | _Rest], _Vars, _BaseDir, _TargetDir) ->$/;"	f	module:rebar_reltool
+execute_overlay	src/rebar_reltool.erl	/^execute_overlay([], _Vars, _BaseDir, _TargetDir) ->$/;"	f	module:rebar_reltool
+execute_overlay	src/rebar_reltool.erl	/^execute_overlay([{copy, In, Out} | Rest], Vars, BaseDir, TargetDir) ->$/;"	f	module:rebar_reltool
+execute_overlay	src/rebar_reltool.erl	/^execute_overlay([{copy, In} | Rest], _Vars, BaseDir, TargetDir) ->$/;"	f	module:rebar_reltool
+execute_overlay	src/rebar_reltool.erl	/^execute_overlay([{create, Out, Contents} | Rest], Vars, BaseDir, TargetDir) ->$/;"	f	module:rebar_reltool
+execute_overlay	src/rebar_reltool.erl	/^execute_overlay([{mkdir, Out} | Rest], Vars, BaseDir, TargetDir) ->$/;"	f	module:rebar_reltool
+execute_overlay	src/rebar_reltool.erl	/^execute_overlay([{replace, Out, Regex, Replacement, Opts} | Rest],$/;"	f	module:rebar_reltool
+execute_overlay	src/rebar_reltool.erl	/^execute_overlay([{replace, Out, Regex, Replacement} | Rest],$/;"	f	module:rebar_reltool
+execute_overlay	src/rebar_reltool.erl	/^execute_overlay([{template, In, Out} | Rest], Vars, BaseDir, TargetDir) ->$/;"	f	module:rebar_reltool
+execute_overlay	src/rebar_reltool.erl	/^execute_overlay([{template_wildcard, Wildcard, OutDir} | Rest], Vars, BaseDir, TargetDir) ->$/;"	f	module:rebar_reltool
+execute_plugin_hook	src/rebar_core.erl	/^execute_plugin_hook(Hook, Command, Modules, Config, ModuleFile, Env) ->$/;"	f	module:rebar_core
+execute_post	src/rebar_core.erl	/^execute_post(Command, Modules, Config, ModuleFile, Env) ->$/;"	f	module:rebar_core
+execute_pre	src/rebar_core.erl	/^execute_pre(Command, Modules, Config, ModuleFile, Env) ->$/;"	f	module:rebar_core
+execute_template	src/rebar_templater.erl	/^execute_template([Other | Rest], TemplateType, TemplateName, Context,$/;"	f	module:rebar_templater
+execute_template	src/rebar_templater.erl	/^execute_template([], _TemplateType, _TemplateName, _Context,$/;"	f	module:rebar_templater
+execute_template	src/rebar_templater.erl	/^execute_template([{chmod, Mod, File} | Rest], TemplateType, TemplateName,$/;"	f	module:rebar_templater
+execute_template	src/rebar_templater.erl	/^execute_template([{copy, Input, Output} | Rest], TemplateType, TemplateName,$/;"	f	module:rebar_templater
+execute_template	src/rebar_templater.erl	/^execute_template([{dir, Name} | Rest], TemplateType, TemplateName, Context,$/;"	f	module:rebar_templater
+execute_template	src/rebar_templater.erl	/^execute_template([{file, Input, Output} | Rest], TemplateType, TemplateName,$/;"	f	module:rebar_templater
+execute_template	src/rebar_templater.erl	/^execute_template([{symlink, Existing, New} | Rest], TemplateType, TemplateName,$/;"	f	module:rebar_templater
+execute_template	src/rebar_templater.erl	/^execute_template([{template, Input, Output} | Rest], TemplateType,$/;"	f	module:rebar_templater
+execute_template	src/rebar_templater.erl	/^execute_template([{variables, _} | Rest], TemplateType, TemplateName, Context,$/;"	f	module:rebar_templater
+expand_code_path	src/rebar_utils.erl	/^expand_code_path() ->$/;"	f	module:rebar_utils
+expand_command	src/rebar_port_compiler.erl	/^expand_command(TmplName, Env, InFiles, OutFile) ->$/;"	f	module:rebar_port_compiler
+expand_env_variable	src/rebar_utils.erl	/^expand_env_variable(InStr, VarName, RawVarValue) ->$/;"	f	module:rebar_utils
+expand_keys_in_value	src/rebar_port_compiler.erl	/^expand_keys_in_value([Key | Rest], Value, Vars) ->$/;"	f	module:rebar_port_compiler
+expand_keys_in_value	src/rebar_port_compiler.erl	/^expand_keys_in_value([], Value, _Vars) ->$/;"	f	module:rebar_port_compiler
+expand_lib_dirs	src/rebar_core.erl	/^expand_lib_dirs([Dir | Rest], Root, Acc) ->$/;"	f	module:rebar_core
+expand_lib_dirs	src/rebar_core.erl	/^expand_lib_dirs([], _Root, Acc) ->$/;"	f	module:rebar_core
+expand_rel_version	src/rebar_rel_utils.erl	/^expand_rel_version(Other, _Dir) ->$/;"	f	module:rebar_rel_utils
+expand_rel_version	src/rebar_rel_utils.erl	/^expand_rel_version({rel, Name, Version, Apps}, Dir) ->$/;"	f	module:rebar_rel_utils
+expand_sh_flag	src/rebar_utils.erl	/^expand_sh_flag(abort_on_error) ->$/;"	f	module:rebar_utils
+expand_sh_flag	src/rebar_utils.erl	/^expand_sh_flag(return_on_error) ->$/;"	f	module:rebar_utils
+expand_sh_flag	src/rebar_utils.erl	/^expand_sh_flag(use_stdout) ->$/;"	f	module:rebar_utils
+expand_sh_flag	src/rebar_utils.erl	/^expand_sh_flag({abort_on_error, Message}) ->$/;"	f	module:rebar_utils
+expand_sh_flag	src/rebar_utils.erl	/^expand_sh_flag({cd, _CdArg} = Cd) ->$/;"	f	module:rebar_utils
+expand_sh_flag	src/rebar_utils.erl	/^expand_sh_flag({env, _EnvArg} = Env) ->$/;"	f	module:rebar_utils
+expand_sh_flag	src/rebar_utils.erl	/^expand_sh_flag({use_stdout, false}) ->$/;"	f	module:rebar_utils
+expand_vars_loop	src/rebar_port_compiler.erl	/^expand_vars_loop(Vars) ->$/;"	f	module:rebar_port_compiler
+expand_vars_loop	src/rebar_port_compiler.erl	/^expand_vars_loop([], Recurse, Vars, Count) ->$/;"	f	module:rebar_port_compiler
+expand_vars_loop	src/rebar_port_compiler.erl	/^expand_vars_loop([], [], Vars, _Count) ->$/;"	f	module:rebar_port_compiler
+expand_vars_loop	src/rebar_port_compiler.erl	/^expand_vars_loop([{K, V} | Rest], Recurse, Vars, Count) ->$/;"	f	module:rebar_port_compiler
+expand_vars_loop	src/rebar_port_compiler.erl	/^expand_vars_loop(_Pending, _Recurse, _Vars, 0) ->$/;"	f	module:rebar_port_compiler
+expand_version	src/rebar_rel_utils.erl	/^expand_version(ReltoolConfig, Dir) ->$/;"	f	module:rebar_rel_utils
+expected_cover_generated_files	test/rebar_eunit_tests.erl	/^expected_cover_generated_files() ->$/;"	f	module:rebar_eunit_tests
+file_contents	src/rebar_escripter.erl	/^file_contents(Filename) ->$/;"	f	module:rebar_escripter
+file_info	src/rebar_upgrade.erl	/^file_info(Path) ->$/;"	f	module:rebar_upgrade
+file_list	test/rebar_file_utils_tests.erl	/^file_list() ->$/;"	f	module:rebar_file_utils_tests
+file_to_name	src/rebar_appups.erl	/^file_to_name(File) ->$/;"	f	module:rebar_appups
+files	inttest/bug_5_rt.erl	/^files() ->$/;"	f	module:bug_5_rt
+files	inttest/ct1/ct1_rt.erl	/^files() ->$/;"	f	module:ct1_rt
+files	inttest/ct2/ct2_rt.erl	/^files() ->$/;"	f	module:ct2_rt
+files	inttest/rgen1/rgen1_rt.erl	/^files() ->$/;"	f	module:rgen1_rt
+files	inttest/t_custom_config/t_custom_config_rt.erl	/^files() ->$/;"	f	module:t_custom_config_rt
+files	inttest/tdeps1/tdeps1_rt.erl	/^files() ->$/;"	f	module:tdeps1_rt
+files	inttest/tdeps2/tdeps2_rt.erl	/^files() ->$/;"	f	module:tdeps2_rt
+files	inttest/thooks/thooks_rt.erl	/^files() ->$/;"	f	module:thooks_rt
+files	inttest/tplugins/tplugins_rt.erl	/^files() ->$/;"	f	module:tplugins_rt
+filter_away_ignored	src/rebar_xref.erl	/^filter_away_ignored(UnusedExports) ->$/;"	f	module:rebar_xref
+filter_defines	src/rebar_erlc_compiler.erl	/^filter_defines([Opt | Rest], Acc) ->$/;"	f	module:rebar_erlc_compiler
+filter_defines	src/rebar_erlc_compiler.erl	/^filter_defines([], Acc) ->$/;"	f	module:rebar_erlc_compiler
+filter_defines	src/rebar_erlc_compiler.erl	/^filter_defines([{platform_define, ArchRegex, Key, Value} | Rest], Acc) ->$/;"	f	module:rebar_erlc_compiler
+filter_defines	src/rebar_erlc_compiler.erl	/^filter_defines([{platform_define, ArchRegex, Key} | Rest], Acc) ->$/;"	f	module:rebar_erlc_compiler
+filter_env	src/rebar_port_compiler.erl	/^filter_env([], Acc) ->$/;"	f	module:rebar_port_compiler
+filter_env	src/rebar_port_compiler.erl	/^filter_env([{ArchRegex, Key, Value} | Rest], Acc) ->$/;"	f	module:rebar_port_compiler
+filter_env	src/rebar_port_compiler.erl	/^filter_env([{Key, Value} | Rest], Acc) ->$/;"	f	module:rebar_port_compiler
+filter_flags	src/rebar.erl	/^filter_flags([Item | Rest], Commands) ->$/;"	f	module:rebar
+filter_flags	src/rebar.erl	/^filter_flags([], Commands) ->$/;"	f	module:rebar
+filter_port_spec	src/rebar_port_compiler.erl	/^filter_port_spec({ArchRegex, _, _, _}) ->$/;"	f	module:rebar_port_compiler
+filter_port_spec	src/rebar_port_compiler.erl	/^filter_port_spec({ArchRegex, _, _}) ->$/;"	f	module:rebar_port_compiler
+filter_port_spec	src/rebar_port_compiler.erl	/^filter_port_spec({_, _}) ->$/;"	f	module:rebar_port_compiler
+filter_port_specs	src/rebar_port_compiler.erl	/^filter_port_specs(Specs) ->$/;"	f	module:rebar_port_compiler
+find_dep	src/rebar_deps.erl	/^find_dep(Dep) ->$/;"	f	module:rebar_deps
+find_dep	src/rebar_deps.erl	/^find_dep(Dep, _Source) ->$/;"	f	module:rebar_deps
+find_dep	src/rebar_deps.erl	/^find_dep(Dep, undefined) ->$/;"	f	module:rebar_deps
+find_dep_in_dir	src/rebar_deps.erl	/^find_dep_in_dir(Dep, {true, Dir}) ->$/;"	f	module:rebar_deps
+find_dep_in_dir	src/rebar_deps.erl	/^find_dep_in_dir(_Dep, {false, Dir}) ->$/;"	f	module:rebar_deps
+find_deps	src/rebar_deps.erl	/^find_deps(Mode, [App | Rest], Acc) when is_atom(App) ->$/;"	f	module:rebar_deps
+find_deps	src/rebar_deps.erl	/^find_deps(Mode, [{App, VsnRegex, Source} | Rest], Acc) ->$/;"	f	module:rebar_deps
+find_deps	src/rebar_deps.erl	/^find_deps(Mode, [{App, VsnRegex} | Rest], Acc) when is_atom(App) ->$/;"	f	module:rebar_deps
+find_deps	src/rebar_deps.erl	/^find_deps(_Mode, [Other | _Rest], _Acc) ->$/;"	f	module:rebar_deps
+find_deps	src/rebar_deps.erl	/^find_deps(find, [], {Avail, Missing}) ->$/;"	f	module:rebar_deps
+find_deps	src/rebar_deps.erl	/^find_deps(find=Mode, Deps) ->$/;"	f	module:rebar_deps
+find_deps	src/rebar_deps.erl	/^find_deps(read, [], Deps) ->$/;"	f	module:rebar_deps
+find_deps	src/rebar_deps.erl	/^find_deps(read=Mode, Deps) ->$/;"	f	module:rebar_deps
+find_disk_templates	src/rebar_templater.erl	/^find_disk_templates() ->$/;"	f	module:rebar_templater
+find_escript_templates	src/rebar_templater.erl	/^find_escript_templates() ->$/;"	f	module:rebar_templater
+find_executable	src/rebar_utils.erl	/^find_executable(Name) ->$/;"	f	module:rebar_utils
+find_files	src/rebar_utils.erl	/^find_files(Dir, Regex) ->$/;"	f	module:rebar_utils
+find_files	src/rebar_utils.erl	/^find_files(Dir, Regex, Recursive) ->$/;"	f	module:rebar_utils
+find_mfa_source	src/rebar_xref.erl	/^find_mfa_source({M, F, A}) ->$/;"	f	module:rebar_xref
+find_non_option_arg	src/getopt.erl	/^find_non_option_arg([], _Pos) ->$/;"	f	module:getopt
+find_non_option_arg	src/getopt.erl	/^find_non_option_arg([_Head | Tail], Pos) ->$/;"	f	module:getopt
+find_non_option_arg	src/getopt.erl	/^find_non_option_arg([{_Name, undefined, undefined, _ArgSpec, _Help} = OptSpec | _Tail], 0) ->$/;"	f	module:getopt
+find_non_option_arg	src/getopt.erl	/^find_non_option_arg([{_Name, undefined, undefined, _ArgSpec, _Help} | Tail], Pos) ->$/;"	f	module:getopt
+find_other_templates	src/rebar_templater.erl	/^find_other_templates() ->$/;"	f	module:rebar_templater
+find_suite_path	src/rebar_ct.erl	/^find_suite_path(Suite, TestDir) ->$/;"	f	module:rebar_ct
+fish	inttest/thooks/fish.erl	/^-module(fish).$/;"	m
+fish	inttest/thooks/fish.erl	/^fish() -> fish.$/;"	f	module:fish
+fish	inttest/tplugins/fish.erl	/^-module(fish).$/;"	m
+fish	inttest/tplugins/fish.erl	/^fish() -> fish.$/;"	f	module:fish
+foo	inttest/ct2/foo_SUITE.erl	/^foo(Config) ->$/;"	f	module:foo_SUITE
+foo_SUITE	inttest/ct2/foo_SUITE.erl	/^-module(foo_SUITE).$/;"	m
+format_fa	src/rebar_xref.erl	/^format_fa({_M, F, A}) ->$/;"	f	module:rebar_xref
+format_mfa	src/rebar_xref.erl	/^format_mfa({M, F, A}) ->$/;"	f	module:rebar_xref
+format_source	src/rebar_deps.erl	/^format_source(App, undefined) ->$/;"	f	module:rebar_deps
+format_source	src/rebar_deps.erl	/^format_source(App, {_, Url, Rev}) ->$/;"	f	module:rebar_deps
+format_source	src/rebar_deps.erl	/^format_source(App, {git, Url, ""}) ->$/;"	f	module:rebar_deps
+format_source	src/rebar_deps.erl	/^format_source(App, {git, Url, {branch, Branch}}) ->$/;"	f	module:rebar_deps
+format_source	src/rebar_deps.erl	/^format_source(App, {git, Url, {tag, Tag}}) ->$/;"	f	module:rebar_deps
+format_source	src/rebar_deps.erl	/^format_source(App, {git, Url}) ->$/;"	f	module:rebar_deps
+fq_beam_file	src/rebar_protobuffs_compiler.erl	/^fq_beam_file(Proto) ->$/;"	f	module:rebar_protobuffs_compiler
+fq_hrl_file	src/rebar_protobuffs_compiler.erl	/^fq_hrl_file(Proto) ->$/;"	f	module:rebar_protobuffs_compiler
+fwibble	inttest/tplugins/bad_plugin.erl	/^fwibble(Config, _) >$/;"	f	module:bad_plugin
+fwibble	inttest/tplugins/test_plugin.erl	/^fwibble(Config, _) ->$/;"	f	module:test_plugin
+gather_src	src/rebar_erlc_compiler.erl	/^gather_src([Dir|Rest], Srcs) ->$/;"	f	module:rebar_erlc_compiler
+gather_src	src/rebar_erlc_compiler.erl	/^gather_src([], Srcs) ->$/;"	f	module:rebar_erlc_compiler
+genappup_which_apps	src/rebar_appups.erl	/^genappup_which_apps(Apps, []) ->$/;"	f	module:rebar_appups
+genappup_which_apps	src/rebar_appups.erl	/^genappup_which_apps(UpgradedApps, [First|Rest]) ->$/;"	f	module:rebar_appups
+generate	src/rebar.erl	/^generate    [dump_spec=0\/1]          Build release with reltool$/;"	f	module:rebar
+generate	src/rebar.erl	/^generate-appups   previous_release=path  Generate appup files$/;"	f	module:rebar
+generate	src/rebar.erl	/^generate-upgrade  previous_release=path  Build an upgrade package$/;"	f	module:rebar
+generate	src/rebar_reltool.erl	/^generate(Config, ReltoolFile) ->$/;"	f	module:rebar_reltool
+generate_appup_files	src/rebar_appups.erl	/^generate_appup_files(NewVerPath, OldVerPath, [{App, {OldVer, NewVer}}|Rest]) ->$/;"	f	module:rebar_appups
+generate_appup_files	src/rebar_appups.erl	/^generate_appup_files(NewVerPath, OldVerPath, [{_App, {undefined, _}}|Rest]) ->$/;"	f	module:rebar_appups
+generate_appup_files	src/rebar_appups.erl	/^generate_appup_files(_, _, []) ->$/;"	f	module:rebar_appups
+generate_instruction	src/rebar_appups.erl	/^generate_instruction(added, File) ->$/;"	f	module:rebar_appups
+generate_instruction	src/rebar_appups.erl	/^generate_instruction(changed, {File, _}) ->$/;"	f	module:rebar_appups
+generate_instruction	src/rebar_appups.erl	/^generate_instruction(deleted, File) ->$/;"	f	module:rebar_appups
+generate_instruction_advanced	src/rebar_appups.erl	/^generate_instruction_advanced(Name, [supervisor], _) ->$/;"	f	module:rebar_appups
+generate_instruction_advanced	src/rebar_appups.erl	/^generate_instruction_advanced(Name, _, _) ->$/;"	f	module:rebar_appups
+generate_instruction_advanced	src/rebar_appups.erl	/^generate_instruction_advanced(Name, _, code_change) ->$/;"	f	module:rebar_appups
+generate_instruction_advanced	src/rebar_appups.erl	/^generate_instruction_advanced(Name, undefined, undefined) ->$/;"	f	module:rebar_appups
+get	src/mustache.erl	/^get(Key, Ctx) ->$/;"	f	module:mustache
+get	src/mustache.erl	/^get(Key, Ctx) when is_list(Key) ->$/;"	f	module:mustache
+get	src/mustache.erl	/^get(Key, Ctx, Mod) ->$/;"	f	module:mustache
+get	src/mustache.erl	/^get(Key, Ctx, Mod) when is_list(Key) ->$/;"	f	module:mustache
+get	src/rebar.erl	/^get-deps                             Fetch dependencies$/;"	f	module:rebar
+get	src/rebar_config.erl	/^get(Config, Key, Default) ->$/;"	f	module:rebar_config
+get_all	src/rebar_config.erl	/^get_all(Config, Key) ->$/;"	f	module:rebar_config
+get_app_beams	src/rebar_escripter.erl	/^get_app_beams([App | Rest], Acc) ->$/;"	f	module:rebar_escripter
+get_app_beams	src/rebar_escripter.erl	/^get_app_beams([], Acc) ->$/;"	f	module:rebar_escripter
+get_app_names	src/rebar_eunit.erl	/^get_app_names() ->$/;"	f	module:rebar_eunit
+get_apps	src/rebar_app_utils.erl	/^get_apps() ->$/;"	f	module:rebar_app_utils
+get_apps	src/rebar_appups.erl	/^get_apps(Name, OldVerPath, NewVerPath) ->$/;"	f	module:rebar_appups
+get_arch	src/rebar_utils.erl	/^get_arch() ->$/;"	f	module:rebar_utils
+get_behavior	src/rebar_appups.erl	/^get_behavior(List) ->$/;"	f	module:rebar_appups
+get_case	src/rebar_ct.erl	/^get_case() ->$/;"	f	module:rebar_ct
+get_command_name_candidates	src/rebar.erl	/^get_command_name_candidates(Command) ->$/;"	f	module:rebar
+get_config_file	src/rebar_ct.erl	/^get_config_file(TestDir) ->$/;"	f	module:rebar_ct
+get_cover_config	src/rebar_ct.erl	/^get_cover_config(Config, Cwd) ->$/;"	f	module:rebar_ct
+get_ct_config_file	src/rebar_ct.erl	/^get_ct_config_file(TestDir) ->$/;"	f	module:rebar_ct
+get_ct_specs	src/rebar_ct.erl	/^get_ct_specs(Cwd) ->$/;"	f	module:rebar_ct
+get_cwd	src/rebar_utils.erl	/^get_cwd() ->$/;"	f	module:rebar_utils
+get_deprecated_3	src/rebar_utils.erl	/^get_deprecated_3(Get, Config, OldOpt, NewOpt, Default, When) ->$/;"	f	module:rebar_utils
+get_deprecated_global	src/rebar_utils.erl	/^get_deprecated_global(OldOpt, NewOpt, Default, When) ->$/;"	f	module:rebar_utils
+get_deprecated_global	src/rebar_utils.erl	/^get_deprecated_global(OldOpt, NewOpt, When) ->$/;"	f	module:rebar_utils
+get_deprecated_list	src/rebar_utils.erl	/^get_deprecated_list(Config, OldOpt, NewOpt, Default, When) ->$/;"	f	module:rebar_utils
+get_deprecated_list	src/rebar_utils.erl	/^get_deprecated_list(Config, OldOpt, NewOpt, When) ->$/;"	f	module:rebar_utils
+get_deprecated_local	src/rebar_utils.erl	/^get_deprecated_local(Config, OldOpt, NewOpt, Default, When) ->$/;"	f	module:rebar_utils
+get_deprecated_local	src/rebar_utils.erl	/^get_deprecated_local(Config, OldOpt, NewOpt, When) ->$/;"	f	module:rebar_utils
+get_deps_dir	src/rebar_deps.erl	/^get_deps_dir() ->$/;"	f	module:rebar_deps
+get_deps_dir	src/rebar_deps.erl	/^get_deps_dir(App) ->$/;"	f	module:rebar_deps
+get_env	src/rebar_config.erl	/^get_env(Config, Mod) ->$/;"	f	module:rebar_config
+get_eunit_opts	src/rebar_eunit.erl	/^get_eunit_opts(Config) ->$/;"	f	module:rebar_eunit
+get_extra_params	src/rebar_ct.erl	/^get_extra_params(Config) ->$/;"	f	module:rebar_ct
+get_global	src/rebar_config.erl	/^get_global(Key, Default) ->$/;"	f	module:rebar_config
+get_jobs	src/rebar_config.erl	/^get_jobs() ->$/;"	f	module:rebar_config
+get_level	src/rebar_log.erl	/^get_level() ->$/;"	f	module:rebar_log
+get_lib_dir	src/rebar_deps.erl	/^get_lib_dir(App) ->$/;"	f	module:rebar_deps
+get_list	src/rebar_config.erl	/^get_list(Config, Key, Default) ->$/;"	f	module:rebar_config
+get_local	src/rebar_config.erl	/^get_local(Config, Key, Default) ->$/;"	f	module:rebar_config
+get_plugin_base_dir	src/rebar_core.erl	/^get_plugin_base_dir(Cwd, SubdirAssoc) ->$/;"	f	module:rebar_core
+get_port_spec	src/rebar_port_compiler.erl	/^get_port_spec(Config, OsType, {Arch, Target, Sources}) ->$/;"	f	module:rebar_port_compiler
+get_port_spec	src/rebar_port_compiler.erl	/^get_port_spec(Config, OsType, {Target, Sources}) ->$/;"	f	module:rebar_port_compiler
+get_port_spec	src/rebar_port_compiler.erl	/^get_port_spec(Config, OsType, {_Arch, Target, Sources, Opts}) ->$/;"	f	module:rebar_port_compiler
+get_port_specs	src/rebar_port_compiler.erl	/^get_port_specs(Config, PortSpecs) ->$/;"	f	module:rebar_port_compiler
+get_previous_release_path	src/rebar_rel_utils.erl	/^get_previous_release_path() ->$/;"	f	module:rebar_rel_utils
+get_rel_apps	src/rebar_rel_utils.erl	/^get_rel_apps(Name, Path) ->$/;"	f	module:rebar_rel_utils
+get_rel_apps	src/rebar_rel_utils.erl	/^get_rel_apps(RelFile) ->$/;"	f	module:rebar_rel_utils
+get_rel_file_path	src/rebar_rel_utils.erl	/^get_rel_file_path(Name, Path) ->$/;"	f	module:rebar_rel_utils
+get_rel_release_info	src/rebar_rel_utils.erl	/^get_rel_release_info(Name, Path) ->$/;"	f	module:rebar_rel_utils
+get_rel_release_info	src/rebar_rel_utils.erl	/^get_rel_release_info(RelFile) ->$/;"	f	module:rebar_rel_utils
+get_reltool_release_info	src/rebar_rel_utils.erl	/^get_reltool_release_info(ReltoolFile) when is_list(ReltoolFile) ->$/;"	f	module:rebar_rel_utils
+get_reltool_release_info	src/rebar_rel_utils.erl	/^get_reltool_release_info([{sys, Config}| _]) ->$/;"	f	module:rebar_rel_utils
+get_root_dir	src/rebar_rel_utils.erl	/^get_root_dir(ReltoolConfig) ->$/;"	f	module:rebar_rel_utils
+get_skip_apps	src/rebar_app_utils.erl	/^get_skip_apps() ->$/;"	f	module:rebar_app_utils
+get_specs	src/rebar_port_compiler.erl	/^get_specs(Config, AppFile) ->$/;"	f	module:rebar_port_compiler
+get_state	test/upgrade_project/apps/dummy/src/dummy_server.erl	/^get_state() ->$/;"	f	module:dummy_server
+get_suite	src/rebar_ct.erl	/^get_suite(TestDir) ->$/;"	f	module:rebar_ct
+get_sys_tuple	src/rebar_rel_utils.erl	/^get_sys_tuple(ReltoolConfig) ->$/;"	f	module:rebar_rel_utils
+get_target_dir	src/rebar_rel_utils.erl	/^get_target_dir(ReltoolConfig) ->$/;"	f	module:rebar_rel_utils
+get_target_parent_dir	src/rebar_rel_utils.erl	/^get_target_parent_dir(ReltoolConfig) ->$/;"	f	module:rebar_rel_utils
+get_value	src/rebar_app_utils.erl	/^get_value(Key, AppInfo, AppFile) ->$/;"	f	module:rebar_app_utils
+getopt	src/getopt.erl	/^-module(getopt).$/;"	m
+global_defines	src/rebar_port_compiler.erl	/^global_defines() ->$/;"	f	module:rebar_port_compiler
+groups	priv/templates/ctsuite.erl	/^groups() -> [].$/;"	f
+handle_call	priv/templates/simplesrv.erl	/^handle_call(_Request, _From, State) ->$/;"	f
+handle_call	test/upgrade_project/apps/dummy/src/dummy_server.erl	/^handle_call(get_state, _From, State) ->$/;"	f	module:dummy_server
+handle_call	test/upgrade_project/apps/dummy/src/dummy_server.erl	/^handle_call({set_state, NewState}, _From, _State) ->$/;"	f	module:dummy_server
+handle_cast	priv/templates/simplesrv.erl	/^handle_cast(_Msg, State) ->$/;"	f
+handle_cast	test/upgrade_project/apps/dummy/src/dummy_server.erl	/^handle_cast('__not_implemented', State) ->$/;"	f	module:dummy_server
+handle_event	priv/templates/simplefsm.erl	/^handle_event(_Event, StateName, State) ->$/;"	f
+handle_info	priv/templates/simplefsm.erl	/^handle_info(_Info, StateName, State) ->$/;"	f
+handle_info	priv/templates/simplesrv.erl	/^handle_info(_Info, State) ->$/;"	f
+handle_info	test/upgrade_project/apps/dummy/src/dummy_server.erl	/^handle_info(_Info, State) ->$/;"	f	module:dummy_server
+handle_sync_event	priv/templates/simplefsm.erl	/^handle_sync_event(_Event, _From, StateName, State) ->$/;"	f
+has_eunit_test_fun	src/rebar_eunit.erl	/^has_eunit_test_fun(Mod) ->$/;"	f	module:rebar_eunit
+has_header	src/rebar_eunit.erl	/^has_header(Mod, Header) ->$/;"	f	module:rebar_eunit
+has_vcs_dir	src/rebar_deps.erl	/^has_vcs_dir(_, _) ->$/;"	f	module:rebar_deps
+has_vcs_dir	src/rebar_deps.erl	/^has_vcs_dir(bzr, Dir) ->$/;"	f	module:rebar_deps
+has_vcs_dir	src/rebar_deps.erl	/^has_vcs_dir(git, Dir) ->$/;"	f	module:rebar_deps
+has_vcs_dir	src/rebar_deps.erl	/^has_vcs_dir(hg, Dir) ->$/;"	f	module:rebar_deps
+has_vcs_dir	src/rebar_deps.erl	/^has_vcs_dir(rsync, _) ->$/;"	f	module:rebar_deps
+has_vcs_dir	src/rebar_deps.erl	/^has_vcs_dir(svn, Dir) ->$/;"	f	module:rebar_deps
+hello	inttest/tdeps1/a.erl	/^hello() ->$/;"	f	module:a
+help	src/rebar.erl	/^help                                 Show the program options$/;"	f	module:rebar
+help	src/rebar.erl	/^help() ->$/;"	f	module:rebar
+hostname	priv/templates/simplenode.windows.runner.cmd	/^@for \/f "usebackq" %%I in (`hostname`) do @set hostname=%%I$/;"	v
+hrl_file	src/rebar_protobuffs_compiler.erl	/^hrl_file(Proto) ->$/;"	f	module:rebar_protobuffs_compiler
+include_path	src/rebar_erlc_compiler.erl	/^include_path(Source, Config) ->$/;"	f	module:rebar_erlc_compiler
+increment_operations	src/rebar_core.erl	/^increment_operations() ->$/;"	f	module:rebar_core
+init	priv/templates/basicnif.erl	/^init() ->$/;"	f
+init	priv/templates/simpleapp_sup.erl	/^init([]) ->$/;"	f
+init	priv/templates/simplefsm.erl	/^init(_Args) ->$/;"	f
+init	priv/templates/simplesrv.erl	/^init(Args) ->$/;"	f
+init	src/rebar_log.erl	/^init() ->$/;"	f	module:rebar_log
+init	test/upgrade_project/apps/dummy/src/dummy_server.erl	/^init([]) ->$/;"	f	module:dummy_server
+init	test/upgrade_project/apps/dummy/src/dummy_sup.erl	/^init([]) ->$/;"	f	module:dummy_sup
+init_per_group	priv/templates/ctsuite.erl	/^init_per_group(_group, Config) ->$/;"	f
+init_per_suite	priv/templates/ctsuite.erl	/^init_per_suite(Config) ->$/;"	f
+init_per_testcase	priv/templates/ctsuite.erl	/^init_per_testcase(TestCase, Config) ->$/;"	f
+inspect	src/rebar_erlc_compiler.erl	/^inspect(Source, IncludePath) ->$/;"	f	module:rebar_erlc_compiler
+inspect_epp	src/rebar_erlc_compiler.erl	/^inspect_epp(Epp, Source, Module, Includes) ->$/;"	f	module:rebar_erlc_compiler
+install	priv/templates/simplenode.windows.runner.cmd	/^:install$/;"	l
+integer_values_too_test	src/mustache.erl	/^integer_values_too_test() ->$/;"	f	module:mustache
+internal_erl_compile	src/rebar_erlc_compiler.erl	/^internal_erl_compile(Source, Config, Outdir, ErlOpts) ->$/;"	f	module:rebar_erlc_compiler
+is_app_available	src/rebar_deps.erl	/^is_app_available(App, VsnRegex, Path) ->$/;"	f	module:rebar_deps
+is_app_dir	src/rebar_app_utils.erl	/^is_app_dir() ->$/;"	f	module:rebar_app_utils
+is_app_dir	src/rebar_app_utils.erl	/^is_app_dir(Dir) ->$/;"	f	module:rebar_app_utils
+is_app_src	src/rebar_app_utils.erl	/^is_app_src(Filename) ->$/;"	f	module:rebar_app_utils
+is_arch	src/rebar_utils.erl	/^is_arch(ArchRegex) ->$/;"	f	module:rebar_utils
+is_arg_false	src/getopt.erl	/^is_arg_false(Arg) ->$/;"	f	module:getopt
+is_arg_true	src/getopt.erl	/^is_arg_true(Arg) ->$/;"	f	module:getopt
+is_boolean_arg	src/getopt.erl	/^is_boolean_arg(Arg) ->$/;"	f	module:getopt
+is_code_change	src/rebar_appups.erl	/^is_code_change(List) ->$/;"	f	module:rebar_appups
+is_command_name_candidate	src/rebar.erl	/^is_command_name_candidate(Command, Candidate) ->$/;"	f	module:rebar
+is_command_name_sub_word_candidate	src/rebar.erl	/^is_command_name_sub_word_candidate(Command, Candidate) ->$/;"	f	module:rebar
+is_command_name_sub_word_candidate_aux	src/rebar.erl	/^is_command_name_sub_word_candidate_aux([CmdSW | CmdSWs],$/;"	f	module:rebar
+is_command_name_sub_word_candidate_aux	src/rebar.erl	/^is_command_name_sub_word_candidate_aux([], []) ->$/;"	f	module:rebar
+is_command_name_sub_word_candidate_aux	src/rebar.erl	/^is_command_name_sub_word_candidate_aux(_CmdSWs, _CandSWs) ->$/;"	f	module:rebar
+is_dir_type	src/rebar_core.erl	/^is_dir_type(_, _) ->$/;"	f	module:rebar_core
+is_dir_type	src/rebar_core.erl	/^is_dir_type(app_dir, Dir) ->$/;"	f	module:rebar_core
+is_dir_type	src/rebar_core.erl	/^is_dir_type(rel_dir, Dir) ->$/;"	f	module:rebar_core
+is_eunitized	src/rebar_eunit.erl	/^is_eunitized(Mod) ->$/;"	f	module:rebar_eunit
+is_expandable	src/rebar_port_compiler.erl	/^is_expandable(InStr) ->$/;"	f	module:rebar_port_compiler
+is_implicit_arg	src/getopt.erl	/^is_implicit_arg(_Type, _Arg) ->$/;"	f	module:getopt
+is_implicit_arg	src/getopt.erl	/^is_implicit_arg(boolean, Arg) ->$/;"	f	module:getopt
+is_implicit_arg	src/getopt.erl	/^is_implicit_arg(integer, Arg) ->$/;"	f	module:getopt
+is_implicit_arg	src/getopt.erl	/^is_implicit_arg({Type, _DefaultArg}, Arg) ->$/;"	f	module:getopt
+is_integer_arg	src/getopt.erl	/^is_integer_arg("-" ++ Tail) ->$/;"	f	module:getopt
+is_integer_arg	src/getopt.erl	/^is_integer_arg(Arg) ->$/;"	f	module:getopt
+is_lib_avail	src/rebar_eunit.erl	/^is_lib_avail(DictKey, Mod, Hrl, Name) ->$/;"	f	module:rebar_eunit
+is_missing_plugin	src/rebar_core.erl	/^is_missing_plugin(Loaded) ->$/;"	f	module:rebar_core
+is_non_neg_float_arg	src/getopt.erl	/^is_non_neg_float_arg([Head | Tail]) when (Head >= $0 andalso Head =< $9) orelse Head =:= $. ->$/;"	f	module:getopt
+is_non_neg_float_arg	src/getopt.erl	/^is_non_neg_float_arg([]) ->$/;"	f	module:getopt
+is_non_neg_float_arg	src/getopt.erl	/^is_non_neg_float_arg([_Head | _Tail]) ->$/;"	f	module:getopt
+is_non_neg_integer_arg	src/getopt.erl	/^is_non_neg_integer_arg([Head | Tail]) when Head >= $0, Head =< $9 ->$/;"	f	module:getopt
+is_non_neg_integer_arg	src/getopt.erl	/^is_non_neg_integer_arg([]) ->$/;"	f	module:getopt
+is_non_neg_integer_arg	src/getopt.erl	/^is_non_neg_integer_arg([_Head | _Tail]) ->$/;"	f	module:getopt
+is_rel_dir	src/rebar_rel_utils.erl	/^is_rel_dir() ->$/;"	f	module:rebar_rel_utils
+is_rel_dir	src/rebar_rel_utils.erl	/^is_rel_dir(Dir) ->$/;"	f	module:rebar_rel_utils
+is_selected_app	src/rebar_app_utils.erl	/^is_selected_app(ThisApp, TargetApps) ->$/;"	f	module:rebar_app_utils
+is_skip_dir	src/rebar_core.erl	/^is_skip_dir(Dir) ->$/;"	f	module:rebar_core
+is_skipped_app	src/rebar_app_utils.erl	/^is_skipped_app(AppFile) ->$/;"	f	module:rebar_app_utils
+is_skipped_app	src/rebar_app_utils.erl	/^is_skipped_app(ThisApp, TargetApps) ->$/;"	f	module:rebar_app_utils
+is_valid_arg	src/getopt.erl	/^is_valid_arg(_Type, _Arg) ->$/;"	f	module:getopt
+is_valid_arg	src/getopt.erl	/^is_valid_arg(boolean, Arg) ->$/;"	f	module:getopt
+is_valid_arg	src/getopt.erl	/^is_valid_arg(float, Arg) ->$/;"	f	module:getopt
+is_valid_arg	src/getopt.erl	/^is_valid_arg(integer, Arg) ->$/;"	f	module:getopt
+is_valid_arg	src/getopt.erl	/^is_valid_arg({Type, _DefaultArg}, Arg) ->$/;"	f	module:getopt
+is_verbose	src/rebar_config.erl	/^is_verbose() ->$/;"	f	module:rebar_config
+kf	src/rebar_xref.erl	/^kf(Key, List) ->$/;"	f	module:rebar_xref
+kill_extras	src/rebar_eunit.erl	/^kill_extras(Pids) ->$/;"	f	module:rebar_eunit
+list	src/rebar.erl	/^list-deps                            List dependencies$/;"	f	module:rebar
+list	src/rebar.erl	/^list-templates                       List available templates$/;"	f	module:rebar
+load_app_file	src/rebar_app_utils.erl	/^load_app_file(Filename) ->$/;"	f	module:rebar_app_utils
+load_app_vars	src/rebar_otp_app.erl	/^load_app_vars(Config) ->$/;"	f	module:rebar_otp_app
+load_config	src/rebar_rel_utils.erl	/^load_config(ReltoolFile) ->$/;"	f	module:rebar_rel_utils
+load_file	src/rebar_templater.erl	/^load_file(escript, Name) ->$/;"	f	module:rebar_templater
+load_file	src/rebar_templater.erl	/^load_file(file, Name) ->$/;"	f	module:rebar_templater
+load_files	src/rebar_escripter.erl	/^load_files(Wildcard, Dir) ->$/;"	f	module:rebar_escripter
+load_plugin	src/rebar_core.erl	/^load_plugin(Src) ->$/;"	f	module:rebar_core
+load_plugin_module	src/rebar_core.erl	/^load_plugin_module(Mod, Bin, Src) ->$/;"	f	module:rebar_core
+load_plugin_modules	src/rebar_core.erl	/^load_plugin_modules(Config, SubdirAssoc, Modules) ->$/;"	f	module:rebar_core
+load_vars_file	src/rebar_reltool.erl	/^load_vars_file(File) ->$/;"	f	module:rebar_reltool
+load_vars_file	src/rebar_reltool.erl	/^load_vars_file(undefined) ->$/;"	f	module:rebar_reltool
+local_opts	src/rebar_config.erl	/^local_opts([Item | Rest], Acc) ->$/;"	f	module:rebar_config
+local_opts	src/rebar_config.erl	/^local_opts([], Acc) ->$/;"	f	module:rebar_config
+local_opts	src/rebar_config.erl	/^local_opts([local | _Rest], Acc) ->$/;"	f	module:rebar_config
+log	src/rebar_log.erl	/^log(Level, Str, Args) ->$/;"	f	module:rebar_log
+log_and_abort	src/rebar_utils.erl	/^log_and_abort(Command, {Rc, Output}) ->$/;"	f	module:rebar_utils
+log_msg_and_abort	src/rebar_utils.erl	/^log_msg_and_abort(Message) ->$/;"	f	module:rebar_utils
+log_prefix	src/rebar_log.erl	/^log_prefix(debug) -> "DEBUG: ";$/;"	f	module:rebar_log
+log_prefix	src/rebar_log.erl	/^log_prefix(error) -> "ERROR: ".$/;"	f	module:rebar_log
+log_prefix	src/rebar_log.erl	/^log_prefix(info)  -> "INFO:  ";$/;"	f	module:rebar_log
+log_prefix	src/rebar_log.erl	/^log_prefix(warn)  -> "WARN:  ";$/;"	f	module:rebar_log
+main	src/rebar.erl	/^main(Args) ->$/;"	f	module:rebar
+make_cmd	src/rebar_ct.erl	/^make_cmd(TestDir, Config) ->$/;"	f	module:rebar_ct
+make_dir_tree	test/rebar_file_utils_tests.erl	/^make_dir_tree(Parent, [{d,Dir,Contents} | Rest]) ->$/;"	f	module:rebar_file_utils_tests
+make_dir_tree	test/rebar_file_utils_tests.erl	/^make_dir_tree(Parent, [{f,File} | Rest]) ->$/;"	f	module:rebar_file_utils_tests
+make_dir_tree	test/rebar_file_utils_tests.erl	/^make_dir_tree(_,[]) ->$/;"	f	module:rebar_file_utils_tests
+make_proplist	src/rebar_rel_utils.erl	/^make_proplist([H|T], Acc) ->$/;"	f	module:rebar_rel_utils
+make_proplist	src/rebar_rel_utils.erl	/^make_proplist([], Acc) ->$/;"	f	module:rebar_rel_utils
+make_proplist	src/rebar_rel_utils.erl	/^make_proplist([{_,_}=H|T], Acc) ->$/;"	f	module:rebar_rel_utils
+make_tar	src/rebar_upgrade.erl	/^make_tar(NameVer, NewVer, NewName) ->$/;"	f	module:rebar_upgrade
+make_tmp_dir	test/rebar_eunit_tests.erl	/^make_tmp_dir() ->$/;"	f	module:rebar_eunit_tests
+maybe_load_local_config	src/rebar_core.erl	/^maybe_load_local_config(Dir, ParentConfig) ->$/;"	f	module:rebar_core
+maybe_process_dir	src/rebar_core.erl	/^maybe_process_dir({[], undefined}=ModuleSet, Config, CurrentCodePath,$/;"	f	module:rebar_core
+maybe_process_dir	src/rebar_core.erl	/^maybe_process_dir({_, ModuleSetFile}=ModuleSet, Config, CurrentCodePath,$/;"	f	module:rebar_core
+maybe_process_dir0	src/rebar_core.erl	/^maybe_process_dir0(AppFile, ModuleSet, Config, CurrentCodePath,$/;"	f	module:rebar_core
+maybe_switch_extension	src/rebar_port_compiler.erl	/^maybe_switch_extension(_OsType, Target) ->$/;"	f	module:rebar_port_compiler
+maybe_switch_extension	src/rebar_port_compiler.erl	/^maybe_switch_extension({win32, nt}, Target) ->$/;"	f	module:rebar_port_compiler
+merge_app_vars	src/rebar_eunit.erl	/^merge_app_vars(ConfigFile, {App, AppVars}) ->$/;"	f	module:rebar_eunit
+merge_each_var	src/rebar_port_compiler.erl	/^merge_each_var([], Vars) ->$/;"	f	module:rebar_port_compiler
+merge_each_var	src/rebar_port_compiler.erl	/^merge_each_var([{Key, Value} | Rest], Vars) ->$/;"	f	module:rebar_port_compiler
+mk_target_dir	src/rebar_reltool.erl	/^mk_target_dir(TargetDir) ->$/;"	f	module:rebar_reltool
+module_name	src/rebar_erlydtl_compiler.erl	/^module_name(Target) ->$/;"	f	module:rebar_erlydtl_compiler
+mstate	src/mustache.erl	/^-record(mstate, {mod = undefined,$/;"	r
+mustache	src/mustache.erl	/^-module(mustache).  %% v0.1.0$/;"	m
+mv	src/rebar_file_utils.erl	/^mv(Source, Dest) ->$/;"	f	module:rebar_file_utils
+mv_file_test_	test/rebar_file_utils_tests.erl	/^mv_file_test_() ->$/;"	f	module:rebar_file_utils_tests
+my_func	priv/templates/simplemod.erl	/^my_func() ->$/;"	f
+myapp_mymod	test/rebar_eunit_tests.erl	/^-define(myapp_mymod,$/;"	d
+myapp_mymod_defined_in_mysuite_tests	test/rebar_eunit_tests.erl	/^-define(myapp_mymod_defined_in_mysuite_tests,$/;"	d
+myapp_mymod_tests	test/rebar_eunit_tests.erl	/^-define(myapp_mymod_tests,$/;"	d
+myfunction	priv/templates/basicnif.erl	/^myfunction(_Ref) ->$/;"	f
+mysuite	test/rebar_eunit_tests.erl	/^-define(mysuite,$/;"	d
+needs_compile	src/rebar_erlc_compiler.erl	/^needs_compile(Source, Target, Hrls) ->$/;"	f	module:rebar_erlc_compiler
+needs_compile	src/rebar_erlydtl_compiler.erl	/^needs_compile(Source, Target, Config) ->$/;"	f	module:rebar_erlydtl_compiler
+needs_compile	src/rebar_neotoma_compiler.erl	/^needs_compile(Source, Target, Config) ->$/;"	f	module:rebar_neotoma_compiler
+needs_compile	src/rebar_port_compiler.erl	/^needs_compile(Source, Bin) ->$/;"	f	module:rebar_port_compiler
+needs_compile	src/rebar_protobuffs_compiler.erl	/^needs_compile(Proto, Beam) ->$/;"	f	module:rebar_protobuffs_compiler
+needs_link	src/rebar_port_compiler.erl	/^needs_link(SoName, NewBins) ->$/;"	f	module:rebar_port_compiler
+needs_link	src/rebar_port_compiler.erl	/^needs_link(SoName, []) ->$/;"	f	module:rebar_port_compiler
+neotoma_opts	src/rebar_neotoma_compiler.erl	/^neotoma_opts(Config) ->$/;"	f	module:rebar_neotoma_compiler
+new	priv/templates/basicnif.erl	/^new() ->$/;"	f
+new	src/rebar_config.erl	/^new() ->$/;"	f	module:rebar_config
+new	src/rebar_config.erl	/^new(ConfigFile) when is_list(ConfigFile) ->$/;"	f	module:rebar_config
+new	src/rebar_config.erl	/^new(Opts0, ConfName) ->$/;"	f	module:rebar_config
+new	src/rebar_config.erl	/^new(_ParentConfig=#config{opts=Opts0})->$/;"	f	module:rebar_config
+new_env	src/rebar_config.erl	/^new_env() ->$/;"	f	module:rebar_config
+nif_funcs	priv/templates/basicnif.c	/^static ErlNifFunc nif_funcs[] =$/;"	v	file:
+nif_stub	priv/templates/basicnif.erl	/^-define(nif_stub, nif_stub_error(?LINE)).$/;"	d
+nif_stub_error	priv/templates/basicnif.erl	/^nif_stub_error(Line) ->$/;"	f
+node_name	priv/templates/simplenode.windows.runner.cmd	/^@set node_name={{nodeid}}$/;"	v
+node_root	priv/templates/simplenode.windows.runner.cmd	/^@for \/F "delims=" %%I in ("%~dp0..") do @set node_root=%%~fI$/;"	v
+now_str	src/rebar_utils.erl	/^now_str() ->$/;"	f	module:rebar_utils
+old_expand_sources	src/rebar_port_compiler.erl	/^old_expand_sources(Sources) ->$/;"	f	module:rebar_port_compiler
+old_filter_port_sources	src/rebar_port_compiler.erl	/^old_filter_port_sources(PortSources) ->$/;"	f	module:rebar_port_compiler
+old_get_so_spec	src/rebar_port_compiler.erl	/^old_get_so_spec({Target, Objects}, OsType) ->$/;"	f	module:rebar_port_compiler
+old_get_sources	src/rebar_port_compiler.erl	/^old_get_sources(Config) ->$/;"	f	module:rebar_port_compiler
+old_get_specs	src/rebar_port_compiler.erl	/^old_get_specs(Config, AppFile) ->$/;"	f	module:rebar_port_compiler
+old_is_arch_port_sources	src/rebar_port_compiler.erl	/^old_is_arch_port_sources(_Sources)         -> true.$/;"	f	module:rebar_port_compiler
+old_is_arch_port_sources	src/rebar_port_compiler.erl	/^old_is_arch_port_sources({Arch, _Sources}) -> rebar_utils:is_arch(Arch);$/;"	f	module:rebar_port_compiler
+on_load	priv/templates/basicnif.c	/^static int on_load(ErlNifEnv* env, void** priv_data, ERL_NIF_TERM load_info)$/;"	f	file:
+option	src/rebar_abnfc_compiler.erl	/^option(Opt, DtlOpts) ->$/;"	f	module:rebar_abnfc_compiler
+option	src/rebar_erlydtl_compiler.erl	/^option(Opt, DtlOpts) ->$/;"	f	module:rebar_erlydtl_compiler
+option	src/rebar_neotoma_compiler.erl	/^option(Opt, Options) ->$/;"	f	module:rebar_neotoma_compiler
+option_spec_list	src/rebar.erl	/^option_spec_list() ->$/;"	f	module:rebar
+os_env	src/rebar_port_compiler.erl	/^os_env() ->$/;"	f	module:rebar_port_compiler
+overlay	src/rebar.erl	/^overlay                              Run reltool overlays only$/;"	f	module:rebar
+overlay	src/rebar_reltool.erl	/^overlay(_Config, ReltoolFile) ->$/;"	f	module:rebar_reltool
+overlay_vars	src/rebar_reltool.erl	/^overlay_vars(Vars0, ReltoolConfig) ->$/;"	f	module:rebar_reltool
+parse	src/getopt.erl	/^parse(OptSpecList, CmdLine) ->$/;"	f	module:getopt
+parse	src/getopt.erl	/^parse(OptSpecList, OptAcc, ArgAcc, ArgPos, ["-" ++ ([_Char | _] = OptArg) = OptStr | Tail]) ->$/;"	f	module:getopt
+parse	src/getopt.erl	/^parse(OptSpecList, OptAcc, ArgAcc, ArgPos, ["--" ++ OptArg = OptStr | Tail]) ->$/;"	f	module:getopt
+parse	src/getopt.erl	/^parse(OptSpecList, OptAcc, ArgAcc, ArgPos, [Arg | Tail]) ->$/;"	f	module:getopt
+parse	src/getopt.erl	/^parse(OptSpecList, OptAcc, ArgAcc, _ArgPos, ["--" | Tail]) ->$/;"	f	module:getopt
+parse	src/getopt.erl	/^parse(OptSpecList, OptAcc, ArgAcc, _ArgPos, []) ->$/;"	f	module:getopt
+parse_args	src/rebar.erl	/^parse_args(Args) ->$/;"	f	module:rebar
+parse_long_option	src/getopt.erl	/^parse_long_option(OptSpecList, OptAcc, ArgAcc, ArgPos, Args, OptStr, OptArg) ->$/;"	f	module:getopt
+parse_long_option_assigned_arg	src/getopt.erl	/^parse_long_option_assigned_arg(OptSpecList, OptAcc, ArgAcc, ArgPos, Args, OptStr, Long, Arg) ->$/;"	f	module:getopt
+parse_long_option_next_arg	src/getopt.erl	/^parse_long_option_next_arg(OptSpecList, OptAcc, ArgAcc, ArgPos, Args, {Name, _Short, _Long, ArgSpec, _Help} = OptSpec) ->$/;"	f	module:getopt
+parse_short_option	src/getopt.erl	/^parse_short_option(OptSpecList, OptAcc, ArgAcc, ArgPos, Args, OptStr, OptArg) ->$/;"	f	module:getopt
+parse_short_option	src/getopt.erl	/^parse_short_option(OptSpecList, OptAcc, ArgAcc, ArgPos, Args, OptStr, OptPos, [Short | Arg]) ->$/;"	f	module:getopt
+parse_short_option	src/getopt.erl	/^parse_short_option(OptSpecList, OptAcc, ArgAcc, ArgPos, Args, _OptStr, _OptPos, []) ->$/;"	f	module:getopt
+parse_short_option_next_arg	src/getopt.erl	/^parse_short_option_next_arg(OptSpecList, OptAcc, ArgAcc, ArgPos, Args, {Name, _Short, _Long, ArgSpec, _Help} = OptSpec, OptPos) ->$/;"	f	module:getopt
+parse_vars	src/rebar_templater.erl	/^parse_vars(Other, _Dict) ->$/;"	f	module:rebar_templater
+parse_vars	src/rebar_templater.erl	/^parse_vars([Other | _Rest], _Dict) ->$/;"	f	module:rebar_templater
+parse_vars	src/rebar_templater.erl	/^parse_vars([], Dict) ->$/;"	f	module:rebar_templater
+parse_vars	src/rebar_templater.erl	/^parse_vars([{Key, Value} | Rest], Dict) when is_atom(Key) ->$/;"	f	module:rebar_templater
+patch_on_windows	src/rebar_utils.erl	/^patch_on_windows(Cmd, Env) ->$/;"	f	module:rebar_utils
+pause_until_net_kernel_stopped	src/rebar_eunit.erl	/^pause_until_net_kernel_stopped() ->$/;"	f	module:rebar_eunit
+pause_until_net_kernel_stopped	src/rebar_eunit.erl	/^pause_until_net_kernel_stopped(0) ->$/;"	f	module:rebar_eunit
+pause_until_net_kernel_stopped	src/rebar_eunit.erl	/^pause_until_net_kernel_stopped(N) ->$/;"	f	module:rebar_eunit
+percentage	src/rebar_eunit.erl	/^percentage(0, 0) ->$/;"	f	module:rebar_eunit
+percentage	src/rebar_eunit.erl	/^percentage(Cov, NotCov) ->$/;"	f	module:rebar_eunit
+perform_cover	src/rebar_eunit.erl	/^perform_cover(Config, BeamFiles, SrcModules) ->$/;"	f	module:rebar_eunit
+perform_cover	src/rebar_eunit.erl	/^perform_cover(false, _Config, _BeamFiles, _SrcModules) ->$/;"	f	module:rebar_eunit
+perform_cover	src/rebar_eunit.erl	/^perform_cover(true, Config, BeamFiles, SrcModules) ->$/;"	f	module:rebar_eunit
+perform_eunit	src/rebar_eunit.erl	/^perform_eunit(Config, Modules) ->$/;"	f	module:rebar_eunit
+perform_eunit	src/rebar_eunit.erl	/^perform_eunit(EunitOpts, Modules, undefined) ->$/;"	f	module:rebar_eunit
+perform_eunit	src/rebar_eunit.erl	/^perform_eunit(EunitOpts, _Modules, Suites) ->$/;"	f	module:rebar_eunit
+plugin_modules	src/rebar_core.erl	/^plugin_modules(Config, SubdirAssoc) ->$/;"	f	module:rebar_core
+plugin_modules	src/rebar_core.erl	/^plugin_modules(Config, SubdirAssoc, FoundModules, MissingModules) ->$/;"	f	module:rebar_core
+plugin_modules	src/rebar_core.erl	/^plugin_modules(Config, SubdirAssoc, Modules) ->$/;"	f	module:rebar_core
+plugin_modules	src/rebar_core.erl	/^plugin_modules(_Config, _SubdirAssoc, FoundModules, []) ->$/;"	f	module:rebar_core
+plugin_modules	src/rebar_core.erl	/^plugin_modules(_Config, _SubdirAssoc, []) ->$/;"	f	module:rebar_core
+port_env	src/rebar_port_compiler.erl	/^port_env(Config) ->$/;"	f	module:rebar_port_compiler
+port_objects	src/rebar_port_compiler.erl	/^port_objects(SourceFiles) ->$/;"	f	module:rebar_port_compiler
+port_opt	src/rebar_port_compiler.erl	/^port_opt(Config, {env, Env}) ->$/;"	f	module:rebar_port_compiler
+port_opt	src/rebar_port_compiler.erl	/^port_opt(_Config, Opt) ->$/;"	f	module:rebar_port_compiler
+port_opts	src/rebar_port_compiler.erl	/^port_opts(Config, Opts) ->$/;"	f	module:rebar_port_compiler
+port_sources	src/rebar_port_compiler.erl	/^port_sources(Sources) ->$/;"	f	module:rebar_port_compiler
+postprocess	src/rebar_deps.erl	/^postprocess(_Config, _) ->$/;"	f	module:rebar_deps
+pre_compile	src/mustache.erl	/^pre_compile(T, State) ->$/;"	f	module:mustache
+prepare_rebar_script	test/rebar_eunit_tests.erl	/^prepare_rebar_script() ->$/;"	f	module:rebar_eunit_tests
+preprocess	src/rebar_deps.erl	/^preprocess(Config, _) ->$/;"	f	module:rebar_deps
+preprocess	src/rebar_otp_app.erl	/^preprocess(Config, AppSrcFile) ->$/;"	f	module:rebar_otp_app
+preprocess	src/rebar_subdirs.erl	/^preprocess(Config, _) ->$/;"	f	module:rebar_subdirs
+print_source	src/rebar_deps.erl	/^print_source(#dep{app=App, source=Source}) ->$/;"	f	module:rebar_deps
+process_commands	src/rebar_core.erl	/^process_commands([Command | Rest], ParentConfig) ->$/;"	f	module:rebar_core
+process_commands	src/rebar_core.erl	/^process_commands([], _ParentConfig) ->$/;"	f	module:rebar_core
+process_dir	src/rebar_core.erl	/^process_dir(Dir, ParentConfig, Command, DirSet) ->$/;"	f	module:rebar_core
+process_dir0	src/rebar_core.erl	/^process_dir0(Dir, Command, DirSet, Config0, CurrentCodePath,$/;"	f	module:rebar_core
+process_each	src/rebar_core.erl	/^process_each([Dir | Rest], Command, Config, ModuleSetFile, DirSet) ->$/;"	f	module:rebar_core
+process_each	src/rebar_core.erl	/^process_each([], _Command, _Config, _ModuleSetFile, DirSet) ->$/;"	f	module:rebar_core
+process_overlay	src/rebar_reltool.erl	/^process_overlay(ReltoolConfig) ->$/;"	f	module:rebar_reltool
+processing_base_dir	src/rebar_core.erl	/^processing_base_dir(Dir) ->$/;"	f	module:rebar_core
+prop_check	src/rebar_utils.erl	/^prop_check(false, Msg, Args) -> ?ABORT(Msg, Args).$/;"	f	module:rebar_utils
+prop_check	src/rebar_utils.erl	/^prop_check(true, _, _) -> true;$/;"	f	module:rebar_utils
+proper_opts	src/rebar_eunit.erl	/^proper_opts() ->$/;"	f	module:rebar_eunit
+protobuffs_is_present	src/rebar_protobuffs_compiler.erl	/^protobuffs_is_present() ->$/;"	f	module:rebar_protobuffs_compiler
+query	priv/templates/simplenode.windows.runner.cmd	/^:query$/;"	l
+read_file	src/rebar_escripter.erl	/^read_file(Filename, Dir) ->$/;"	f	module:rebar_escripter
+rebar	src/rebar.erl	/^-module(rebar).$/;"	m
+rebar	test/rebar_eunit_tests.erl	/^rebar() ->$/;"	f	module:rebar_eunit_tests
+rebar	test/rebar_eunit_tests.erl	/^rebar(Args) when is_list(Args) ->$/;"	f	module:rebar_eunit_tests
+rebar_abnfc_compiler	src/rebar_abnfc_compiler.erl	/^-module(rebar_abnfc_compiler).$/;"	m
+rebar_app_utils	src/rebar_app_utils.erl	/^-module(rebar_app_utils).$/;"	m
+rebar_appups	src/rebar_appups.erl	/^-module(rebar_appups).$/;"	m
+rebar_asn1_compiler	src/rebar_asn1_compiler.erl	/^-module(rebar_asn1_compiler).$/;"	m
+rebar_base_compiler	src/rebar_base_compiler.erl	/^-module(rebar_base_compiler).$/;"	m
+rebar_cleaner	src/rebar_cleaner.erl	/^-module(rebar_cleaner).$/;"	m
+rebar_config	src/rebar_config.erl	/^-module(rebar_config).$/;"	m
+rebar_core	src/rebar_core.erl	/^-module(rebar_core).$/;"	m
+rebar_ct	src/rebar_ct.erl	/^-module(rebar_ct).$/;"	m
+rebar_deps	src/rebar_deps.erl	/^-module(rebar_deps).$/;"	m
+rebar_edoc	src/rebar_edoc.erl	/^-module(rebar_edoc).$/;"	m
+rebar_erlc_compiler	src/rebar_erlc_compiler.erl	/^-module(rebar_erlc_compiler).$/;"	m
+rebar_erlydtl_compiler	src/rebar_erlydtl_compiler.erl	/^-module(rebar_erlydtl_compiler).$/;"	m
+rebar_escripter	src/rebar_escripter.erl	/^-module(rebar_escripter).$/;"	m
+rebar_eunit	src/rebar_eunit.erl	/^-module(rebar_eunit).$/;"	m
+rebar_eunit_tests	test/rebar_eunit_tests.erl	/^-module(rebar_eunit_tests).$/;"	m
+rebar_file_utils	src/rebar_file_utils.erl	/^-module(rebar_file_utils).$/;"	m
+rebar_file_utils_tests	test/rebar_file_utils_tests.erl	/^-module(rebar_file_utils_tests).$/;"	m
+rebar_lfe_compiler	src/rebar_lfe_compiler.erl	/^-module(rebar_lfe_compiler).$/;"	m
+rebar_log	src/rebar_log.erl	/^-module(rebar_log).$/;"	m
+rebar_neotoma_compiler	src/rebar_neotoma_compiler.erl	/^-module(rebar_neotoma_compiler).$/;"	m
+rebar_otp_app	src/rebar_otp_app.erl	/^-module(rebar_otp_app).$/;"	m
+rebar_port_compiler	src/rebar_port_compiler.erl	/^-module(rebar_port_compiler).$/;"	m
+rebar_protobuffs_compiler	src/rebar_protobuffs_compiler.erl	/^-module(rebar_protobuffs_compiler).$/;"	m
+rebar_rel_utils	src/rebar_rel_utils.erl	/^-module(rebar_rel_utils).$/;"	m
+rebar_reltool	src/rebar_reltool.erl	/^-module(rebar_reltool).$/;"	m
+rebar_require_vsn	src/rebar_require_vsn.erl	/^-module(rebar_require_vsn).$/;"	m
+rebar_subdirs	src/rebar_subdirs.erl	/^-module(rebar_subdirs).$/;"	m
+rebar_templater	src/rebar_templater.erl	/^-module(rebar_templater).$/;"	m
+rebar_upgrade	src/rebar_upgrade.erl	/^-module(rebar_upgrade).$/;"	m
+rebar_utils	src/rebar_utils.erl	/^-module(rebar_utils).$/;"	m
+rebar_xref	src/rebar_xref.erl	/^-module(rebar_xref).$/;"	m
+reconstruct_app_env_vars	src/rebar_eunit.erl	/^reconstruct_app_env_vars([App|Apps]) ->$/;"	f	module:rebar_eunit
+reconstruct_app_env_vars	src/rebar_eunit.erl	/^reconstruct_app_env_vars([]) ->$/;"	f	module:rebar_eunit
+referenced_dtls	src/rebar_erlydtl_compiler.erl	/^referenced_dtls(Source, Config) ->$/;"	f	module:rebar_erlydtl_compiler
+referenced_dtls1	src/rebar_erlydtl_compiler.erl	/^referenced_dtls1(Step, Config, Seen) ->$/;"	f	module:rebar_erlydtl_compiler
+referenced_pegs	src/rebar_neotoma_compiler.erl	/^referenced_pegs(Source, Config) ->$/;"	f	module:rebar_neotoma_compiler
+referenced_pegs1	src/rebar_neotoma_compiler.erl	/^referenced_pegs1(Step, Config, Seen) ->$/;"	f	module:rebar_neotoma_compiler
+releases_dir	priv/templates/simplenode.windows.runner.cmd	/^@set releases_dir=%node_root%\\releases$/;"	v
+releases_dir	priv/templates/simplenode.windows.start_erl.cmd	/^@set releases_dir=%node_root%\\releases$/;"	v
+remember_cwd_subdir	src/rebar_core.erl	/^remember_cwd_subdir(Cwd, Subdirs) ->$/;"	f	module:rebar_core
+remove_all_files	src/rebar_upgrade.erl	/^remove_all_files(Dir, Files) ->$/;"	f	module:rebar_upgrade
+remove_common_path	src/rebar_base_compiler.erl	/^remove_common_path(Fname, Path) ->$/;"	f	module:rebar_base_compiler
+remove_common_path1	src/rebar_base_compiler.erl	/^remove_common_path1(FilenameParts, _) ->$/;"	f	module:rebar_base_compiler
+remove_common_path1	src/rebar_base_compiler.erl	/^remove_common_path1([Part | RestFilename], [Part | RestPath]) ->$/;"	f	module:rebar_base_compiler
+remove_dir_tree	src/rebar_upgrade.erl	/^remove_dir_tree(Dir) ->$/;"	f	module:rebar_upgrade
+remove_script_ext	src/rebar_config.erl	/^remove_script_ext(F) ->$/;"	f	module:rebar_config
+remove_tmp_dir	test/rebar_eunit_tests.erl	/^remove_tmp_dir() ->$/;"	f	module:rebar_eunit_tests
+remove_tmp_dir	test/rebar_eunit_tests.erl	/^remove_tmp_dir(_) ->$/;"	f	module:rebar_eunit_tests
+render	src/mustache.erl	/^render(Body, Ctx) when is_list(Body) ->$/;"	f	module:mustache
+render	src/mustache.erl	/^render(Mod) ->$/;"	f	module:mustache
+render	src/mustache.erl	/^render(Mod, CompiledTemplate) ->$/;"	f	module:mustache
+render	src/mustache.erl	/^render(Mod, CompiledTemplate, Ctx) ->$/;"	f	module:mustache
+render	src/mustache.erl	/^render(Mod, File) when is_list(File) ->$/;"	f	module:mustache
+render	src/mustache.erl	/^render(Mod, File, Ctx) when is_list(File) ->$/;"	f	module:mustache
+render	src/rebar_templater.erl	/^render(Bin, Context) ->$/;"	f	module:rebar_templater
+replace_extension	src/rebar_port_compiler.erl	/^replace_extension(File, NewExt) ->$/;"	f	module:rebar_port_compiler
+replace_extension	src/rebar_port_compiler.erl	/^replace_extension(File, OldExt, NewExt) ->$/;"	f	module:rebar_port_compiler
+require_source_engine	src/rebar_deps.erl	/^require_source_engine(Source) ->$/;"	f	module:rebar_deps
+required_vcs_client_vsn	src/rebar_deps.erl	/^required_vcs_client_vsn(bzr)   -> {2, 0};$/;"	f	module:rebar_deps
+required_vcs_client_vsn	src/rebar_deps.erl	/^required_vcs_client_vsn(git)   -> {1, 5};$/;"	f	module:rebar_deps
+required_vcs_client_vsn	src/rebar_deps.erl	/^required_vcs_client_vsn(hg)    -> {1, 1};$/;"	f	module:rebar_deps
+required_vcs_client_vsn	src/rebar_deps.erl	/^required_vcs_client_vsn(rsync) -> {2, 0}.$/;"	f	module:rebar_deps
+required_vcs_client_vsn	src/rebar_deps.erl	/^required_vcs_client_vsn(svn)   -> {1, 6};$/;"	f	module:rebar_deps
+reset_after_eunit	src/rebar_eunit.erl	/^reset_after_eunit({OldProcesses, WasAlive, OldAppEnvs, _OldACs}) ->$/;"	f	module:rebar_eunit
+resolve_symlink	src/rebar_subdirs.erl	/^resolve_symlink(Dir0) ->$/;"	f	module:rebar_subdirs
+resolve_variables	src/rebar_templater.erl	/^resolve_variables([], Dict) ->$/;"	f	module:rebar_templater
+resolve_variables	src/rebar_templater.erl	/^resolve_variables([_Pair | Rest], Dict) ->$/;"	f	module:rebar_templater
+resolve_variables	src/rebar_templater.erl	/^resolve_variables([{Key, Value0} | Rest], Dict) when is_list(Value0) ->$/;"	f	module:rebar_templater
+restore_code_path	src/rebar_core.erl	/^restore_code_path(no_change) ->$/;"	f	module:rebar_core
+restore_code_path	src/rebar_core.erl	/^restore_code_path({old, Path}) ->$/;"	f	module:rebar_core
+rgen1_rt	inttest/rgen1/rgen1_rt.erl	/^-module(rgen1_rt).$/;"	m
+rm_rf	src/rebar_file_utils.erl	/^rm_rf(Target) ->$/;"	f	module:rebar_file_utils
+rm_rf_dir_test_	test/rebar_file_utils_tests.erl	/^rm_rf_dir_test_() ->$/;"	f	module:rebar_file_utils_tests
+rm_rf_wildcard_test_	test/rebar_file_utils_tests.erl	/^rm_rf_wildcard_test_() ->$/;"	f	module:rebar_file_utils_tests
+run	inttest/bug_5_rt.erl	/^run(_Dir) ->$/;"	f	module:bug_5_rt
+run	inttest/ct1/ct1_rt.erl	/^run(_Dir) ->$/;"	f	module:ct1_rt
+run	inttest/ct2/ct2_rt.erl	/^run(_Dir) ->$/;"	f	module:ct2_rt
+run	inttest/rgen1/rgen1_rt.erl	/^run(_Dir) ->$/;"	f	module:rgen1_rt
+run	inttest/t_custom_config/t_custom_config_rt.erl	/^run(Dir) ->$/;"	f	module:t_custom_config_rt
+run	inttest/tdeps1/tdeps1_rt.erl	/^run(_Dir) ->$/;"	f	module:tdeps1_rt
+run	inttest/tdeps2/tdeps2_rt.erl	/^run(_Dir) ->$/;"	f	module:tdeps2_rt
+run	inttest/thooks/thooks_rt.erl	/^run(_Dir) ->$/;"	f	module:thooks_rt
+run	inttest/tplugins/tplugins_rt.erl	/^run(Dir) ->$/;"	f	module:tplugins_rt
+run	src/rebar.erl	/^run(RawArgs) ->$/;"	f	module:rebar
+run	src/rebar_base_compiler.erl	/^run(Config, FirstFiles, RestFiles, CompileFn) ->$/;"	f	module:rebar_base_compiler
+run	src/rebar_base_compiler.erl	/^run(Config, FirstFiles, SourceDir, SourceExt, TargetDir, TargetExt,$/;"	f	module:rebar_base_compiler
+run_aux	src/rebar.erl	/^run_aux(Commands) ->$/;"	f	module:rebar
+run_aux	src/rebar.erl	/^run_aux(["help"]) ->$/;"	f	module:rebar
+run_aux	src/rebar.erl	/^run_aux(["version"]) ->$/;"	f	module:rebar
+run_checks	src/rebar_upgrade.erl	/^run_checks(OldVerPath, ReltoolConfig) ->$/;"	f	module:rebar_upgrade
+run_modules	src/rebar_core.erl	/^run_modules([Module | Rest], Command, Config, File) ->$/;"	f	module:rebar_core
+run_modules	src/rebar_core.erl	/^run_modules([], _Command, _Config, _File) ->$/;"	f	module:rebar_core
+run_reltool	src/rebar_reltool.erl	/^run_reltool(Server, _Config, ReltoolConfig) ->$/;"	f	module:rebar_reltool
+run_systools	src/rebar_upgrade.erl	/^run_systools(NewVer, Name) ->$/;"	f	module:rebar_upgrade
+run_test	src/rebar_ct.erl	/^run_test(TestDir, Config, _File) ->$/;"	f	module:rebar_ct
+run_test_if_present	src/rebar_ct.erl	/^run_test_if_present(TestDir, Config, File) ->$/;"	f	module:rebar_ct
+safe_element	src/rebar_xref.erl	/^safe_element(N, Tuple) ->$/;"	f	module:rebar_xref
+say	test/upgrade_project/apps/dummy/src/dummy_server.erl	/^say(Format, Data) ->$/;"	f	module:dummy_server
+select_compile_drv_template	src/rebar_port_compiler.erl	/^select_compile_drv_template("$CC")  -> "DRV_CC_TEMPLATE";$/;"	f	module:rebar_port_compiler
+select_compile_drv_template	src/rebar_port_compiler.erl	/^select_compile_drv_template("$CXX") -> "DRV_CXX_TEMPLATE".$/;"	f	module:rebar_port_compiler
+select_compile_exe_template	src/rebar_port_compiler.erl	/^select_compile_exe_template("$CC")  -> "EXE_CC_TEMPLATE";$/;"	f	module:rebar_port_compiler
+select_compile_exe_template	src/rebar_port_compiler.erl	/^select_compile_exe_template("$CXX") -> "EXE_CXX_TEMPLATE".$/;"	f	module:rebar_port_compiler
+select_compile_template	src/rebar_port_compiler.erl	/^select_compile_template(drv, Compiler) ->$/;"	f	module:rebar_port_compiler
+select_compile_template	src/rebar_port_compiler.erl	/^select_compile_template(exe, Compiler) ->$/;"	f	module:rebar_port_compiler
+select_link_template	src/rebar_port_compiler.erl	/^select_link_template(Target) ->$/;"	f	module:rebar_port_compiler
+select_modules	src/rebar_core.erl	/^select_modules([Module | Rest], Command, Acc) ->$/;"	f	module:rebar_core
+select_modules	src/rebar_core.erl	/^select_modules([], _Command, Acc) ->$/;"	f	module:rebar_core
+select_template	src/rebar_templater.erl	/^select_template([], Template) ->$/;"	f	module:rebar_templater
+select_template	src/rebar_templater.erl	/^select_template([{Type, Avail} | Rest], Template) ->$/;"	f	module:rebar_templater
+service_name	priv/templates/simplenode.windows.runner.cmd	/^@set service_name=%node_name%_%release_version%$/;"	v
+set	src/rebar_config.erl	/^set(Config, Key, Value) ->$/;"	f	module:rebar_config
+set_env	src/rebar_config.erl	/^set_env(Config, Mod, Env) ->$/;"	f	module:rebar_config
+set_global	src/rebar_config.erl	/^set_global(Key, Value) ->$/;"	f	module:rebar_config
+set_global	src/rebar_config.erl	/^set_global(jobs=Key, Value) when is_integer(Value) ->$/;"	f	module:rebar_config
+set_global	src/rebar_config.erl	/^set_global(jobs=Key, Value) when is_list(Value) ->$/;"	f	module:rebar_config
+set_global_deps_dir	src/rebar_deps.erl	/^set_global_deps_dir(Config, []) ->$/;"	f	module:rebar_deps
+set_global_deps_dir	src/rebar_deps.erl	/^set_global_deps_dir(_Config, _DepsDir) ->$/;"	f	module:rebar_deps
+set_global_flag	src/rebar.erl	/^set_global_flag(Options, Flag) ->$/;"	f	module:rebar
+set_level	src/rebar_log.erl	/^set_level(Level) ->$/;"	f	module:rebar_log
+set_log_level	src/rebar.erl	/^set_log_level(Options) ->$/;"	f	module:rebar
+set_state	test/upgrade_project/apps/dummy/src/dummy_server.erl	/^set_state(What) ->$/;"	f	module:dummy_server
+set_trim	priv/templates/simplenode.windows.runner.cmd	/^:set_trim$/;"	l
+set_trim	priv/templates/simplenode.windows.start_erl.cmd	/^:set_trim$/;"	l
+setup	src/rebar_upgrade.erl	/^setup(OldVerPath, NewVerPath, NewName, NewVer, NameVer) ->$/;"	f	module:rebar_upgrade
+setup	test/rebar_file_utils_tests.erl	/^setup() ->$/;"	f	module:rebar_file_utils_tests
+setup_basic_project	test/rebar_eunit_tests.erl	/^setup_basic_project() ->$/;"	f	module:rebar_eunit_tests
+setup_code_path	src/rebar_edoc.erl	/^setup_code_path() ->$/;"	f	module:rebar_edoc
+setup_cover_project	test/rebar_eunit_tests.erl	/^setup_cover_project() ->$/;"	f	module:rebar_eunit_tests
+setup_cover_project_with_suite	test/rebar_eunit_tests.erl	/^setup_cover_project_with_suite() ->$/;"	f	module:rebar_eunit_tests
+setup_env	src/rebar_deps.erl	/^setup_env(_Config) ->$/;"	f	module:rebar_deps
+setup_env	src/rebar_port_compiler.erl	/^setup_env(Config) ->$/;"	f	module:rebar_port_compiler
+setup_env	src/rebar_port_compiler.erl	/^setup_env(Config, ExtraEnv) ->$/;"	f	module:rebar_port_compiler
+setup_environment	test/rebar_eunit_tests.erl	/^setup_environment() ->$/;"	f	module:rebar_eunit_tests
+setup_envs	src/rebar_core.erl	/^setup_envs(Config, Modules) ->$/;"	f	module:rebar_core
+sh	src/rebar_utils.erl	/^sh(Command0, Options0) ->$/;"	f	module:rebar_utils
+sh_loop	src/rebar_utils.erl	/^sh_loop(Port, Fun, Acc) ->$/;"	f	module:rebar_utils
+should_log	src/rebar_log.erl	/^should_log(_, _)         -> false.$/;"	f	module:rebar_log
+should_log	src/rebar_log.erl	/^should_log(debug, _)     -> true;$/;"	f	module:rebar_log
+should_log	src/rebar_log.erl	/^should_log(error, _)     -> false;$/;"	f	module:rebar_log
+should_log	src/rebar_log.erl	/^should_log(error, error) -> true;$/;"	f	module:rebar_log
+should_log	src/rebar_log.erl	/^should_log(info, _)      -> true;$/;"	f	module:rebar_log
+should_log	src/rebar_log.erl	/^should_log(info, debug)  -> false;$/;"	f	module:rebar_log
+should_log	src/rebar_log.erl	/^should_log(warn, _)      -> true;$/;"	f	module:rebar_log
+should_log	src/rebar_log.erl	/^should_log(warn, debug)  -> false;$/;"	f	module:rebar_log
+should_log	src/rebar_log.erl	/^should_log(warn, info)   -> false;$/;"	f	module:rebar_log
+show_info_maybe_halt	src/rebar.erl	/^show_info_maybe_halt(O, Opts, F) ->$/;"	f	module:rebar
+show_info_maybe_halt	src/rebar.erl	/^show_info_maybe_halt(Opts, NonOptArgs) ->$/;"	f	module:rebar
+show_log	src/rebar_ct.erl	/^show_log(RawLog) ->$/;"	f	module:rebar_ct
+simple_compile_wrapper	src/rebar_base_compiler.erl	/^simple_compile_wrapper(Source, Target, Compile3Fn, Config, false) ->$/;"	f	module:rebar_base_compiler
+simple_compile_wrapper	src/rebar_base_compiler.erl	/^simple_compile_wrapper(Source, Target, Compile3Fn, Config, true) ->$/;"	f	module:rebar_base_compiler
+simple_test	inttest/ct1/test_SUITE.erl	/^simple_test(Config) ->$/;"	f	module:test_SUITE
+simple_test	src/mustache.erl	/^simple_test() ->$/;"	f	module:mustache
+skip_dir	src/rebar_core.erl	/^skip_dir(Dir) ->$/;"	f	module:rebar_core
+skip_dirs	src/rebar_core.erl	/^skip_dirs() ->$/;"	f	module:rebar_core
+source_engine_avail	src/rebar_deps.erl	/^source_engine_avail(Name, Source)$/;"	f	module:rebar_deps
+source_engine_avail	src/rebar_deps.erl	/^source_engine_avail(Source) ->$/;"	f	module:rebar_deps
+spec	src/rebar_port_compiler.erl	/^-record(spec, {type::'drv' | 'exe',$/;"	r
+split_assigned_arg	src/getopt.erl	/^split_assigned_arg(OptStr) ->$/;"	f	module:getopt
+split_assigned_arg	src/getopt.erl	/^split_assigned_arg(OptStr, [Char | Tail], Acc) ->$/;"	f	module:getopt
+split_assigned_arg	src/getopt.erl	/^split_assigned_arg(OptStr, [], _Acc) ->$/;"	f	module:getopt
+split_assigned_arg	src/getopt.erl	/^split_assigned_arg(_OptStr, "=" ++ Tail, Acc) ->$/;"	f	module:getopt
+src_dirs	src/rebar_erlc_compiler.erl	/^src_dirs(SrcDirs) ->$/;"	f	module:rebar_erlc_compiler
+src_dirs	src/rebar_erlc_compiler.erl	/^src_dirs([]) ->$/;"	f	module:rebar_erlc_compiler
+start	priv/templates/simpleapp_app.erl	/^start(_StartType, _StartArgs) ->$/;"	f
+start	priv/templates/simplenode.windows.runner.cmd	/^:start$/;"	l
+start	src/mustache.erl	/^start([T]) ->$/;"	f	module:mustache
+start	test/upgrade_project/apps/dummy/src/dummy_app.erl	/^start(_,_) ->$/;"	f	module:dummy_app
+start_link	priv/templates/simpleapp_sup.erl	/^start_link() ->$/;"	f
+start_link	priv/templates/simplefsm.erl	/^start_link() ->$/;"	f
+start_link	priv/templates/simplesrv.erl	/^start_link() ->$/;"	f
+start_link	test/upgrade_project/apps/dummy/src/dummy_server.erl	/^start_link() ->$/;"	f	module:dummy_server
+start_link	test/upgrade_project/apps/dummy/src/dummy_sup.erl	/^start_link() ->$/;"	f	module:dummy_sup
+state_name	priv/templates/simplefsm.erl	/^state_name(_Event, State) ->$/;"	f
+state_name	priv/templates/simplefsm.erl	/^state_name(_Event, _From, State) ->$/;"	f
+status_before_eunit	src/rebar_eunit.erl	/^status_before_eunit() ->$/;"	f	module:rebar_eunit
+stop	priv/templates/simpleapp_app.erl	/^stop(_State) ->$/;"	f
+stop	priv/templates/simplenode.windows.runner.cmd	/^:stop$/;"	l
+stop	test/upgrade_project/apps/dummy/src/dummy_app.erl	/^stop(_) -> ok.$/;"	f	module:dummy_app
+suite	priv/templates/ctsuite.erl	/^suite() -> [{timetrap, {seconds, 20}}].$/;"	f
+switch_to_dll_or_exe	src/rebar_port_compiler.erl	/^switch_to_dll_or_exe(Target) ->$/;"	f	module:rebar_port_compiler
+t_custom_config_rt	inttest/t_custom_config/t_custom_config_rt.erl	/^-module(t_custom_config_rt).$/;"	m
+tag_kind	src/mustache.erl	/^tag_kind(T, {K0, K1}) ->$/;"	f	module:mustache
+tag_kind	src/mustache.erl	/^tag_kind(_T, {-1, 0}) ->$/;"	f	module:mustache
+target_file	src/rebar_base_compiler.erl	/^target_file(SourceFile, SourceDir, SourceExt, TargetDir, TargetExt) ->$/;"	f	module:rebar_base_compiler
+target_type	src/rebar_port_compiler.erl	/^target_type(Target) -> target_type1(filename:extension(Target)).$/;"	f	module:rebar_port_compiler
+target_type1	src/rebar_port_compiler.erl	/^target_type1("")     -> exe;$/;"	f	module:rebar_port_compiler
+target_type1	src/rebar_port_compiler.erl	/^target_type1(".dll") -> drv;$/;"	f	module:rebar_port_compiler
+target_type1	src/rebar_port_compiler.erl	/^target_type1(".exe") -> exe.$/;"	f	module:rebar_port_compiler
+target_type1	src/rebar_port_compiler.erl	/^target_type1(".so")  -> drv;$/;"	f	module:rebar_port_compiler
+tdeps1_rt	inttest/tdeps1/tdeps1_rt.erl	/^-module(tdeps1_rt).$/;"	m
+tdeps2_rt	inttest/tdeps2/tdeps2_rt.erl	/^-module(tdeps2_rt).$/;"	m
+teardown	test/rebar_eunit_tests.erl	/^teardown(_) ->$/;"	f	module:rebar_eunit_tests
+teardown	test/rebar_file_utils_tests.erl	/^teardown(_) ->$/;"	f	module:rebar_file_utils_tests
+template_id	src/rebar_templater.erl	/^template_id() ->$/;"	f	module:rebar_templater
+template_path	src/mustache.erl	/^template_path(Mod) ->$/;"	f	module:mustache
+terminate	priv/templates/simplefsm.erl	/^terminate(_Reason, _StateName, _State) ->$/;"	f
+terminate	priv/templates/simplesrv.erl	/^terminate(_Reason, _State) ->$/;"	f
+terminate	test/upgrade_project/apps/dummy/src/dummy_server.erl	/^terminate(_Reason, _State) ->$/;"	f	module:dummy_server
+test	inttest/t_custom_config/custom_config.erl	/^test() ->$/;"	f	module:custom_config
+test_	priv/templates/ctsuite.erl	/^test_{{testmod}}() ->$/;"	f
+test_	priv/templates/ctsuite.erl	/^test_{{testmod}}(_Config) ->$/;"	f
+test_SUITE	inttest/ct1/test_SUITE.erl	/^-module(test_SUITE).$/;"	m
+test_plugin	inttest/tplugins/test_plugin.erl	/^-module(test_plugin).$/;"	m
+thooks_rt	inttest/thooks/thooks_rt.erl	/^-module(thooks_rt).$/;"	m
+to_s	src/mustache.erl	/^to_s(Val) ->$/;"	f	module:mustache
+to_s	src/mustache.erl	/^to_s(Val) when is_atom(Val) ->$/;"	f	module:mustache
+to_s	src/mustache.erl	/^to_s(Val) when is_float(Val) ->$/;"	f	module:mustache
+to_s	src/mustache.erl	/^to_s(Val) when is_integer(Val) ->$/;"	f	module:mustache
+to_type	src/getopt.erl	/^to_type(_Type, Arg) ->$/;"	f	module:getopt
+to_type	src/getopt.erl	/^to_type(atom, Arg) ->$/;"	f	module:getopt
+to_type	src/getopt.erl	/^to_type(binary, Arg) ->$/;"	f	module:getopt
+to_type	src/getopt.erl	/^to_type(boolean, Arg) ->$/;"	f	module:getopt
+to_type	src/getopt.erl	/^to_type(float, Arg) ->$/;"	f	module:getopt
+to_type	src/getopt.erl	/^to_type(integer, Arg) ->$/;"	f	module:getopt
+to_type	src/getopt.erl	/^to_type({Type, _DefaultArg}, Arg) ->$/;"	f	module:getopt
+tplugins_rt	inttest/tplugins/tplugins_rt.erl	/^-module(tplugins_rt).$/;"	m
+try_consult	src/rebar_config.erl	/^try_consult(File) ->$/;"	f	module:rebar_config
+ulist	src/rebar_core.erl	/^ulist(L) ->$/;"	f	module:rebar_core
+ulist	src/rebar_core.erl	/^ulist([H | T], Acc) ->$/;"	f	module:rebar_core
+ulist	src/rebar_core.erl	/^ulist([], Acc) ->$/;"	f	module:rebar_core
+unabbreviate_command_names	src/rebar.erl	/^unabbreviate_command_names([Command | Commands]) ->$/;"	f	module:rebar
+unabbreviate_command_names	src/rebar.erl	/^unabbreviate_command_names([]) ->$/;"	f	module:rebar
+uninstall	priv/templates/simplenode.windows.runner.cmd	/^:uninstall$/;"	l
+update	src/rebar.erl	/^update-deps                          Update fetched dependencies$/;"	f	module:rebar
+update_code_path	src/rebar_core.erl	/^update_code_path(Config) ->$/;"	f	module:rebar_core
+update_deps_code_path	src/rebar_deps.erl	/^update_deps_code_path([Dep | Rest]) ->$/;"	f	module:rebar_deps
+update_deps_code_path	src/rebar_deps.erl	/^update_deps_code_path([]) ->$/;"	f	module:rebar_deps
+update_source	src/rebar_deps.erl	/^update_source(AppDir, {bzr, _Url, Rev}) ->$/;"	f	module:rebar_deps
+update_source	src/rebar_deps.erl	/^update_source(AppDir, {git, Url, ""}) ->$/;"	f	module:rebar_deps
+update_source	src/rebar_deps.erl	/^update_source(AppDir, {git, Url}) ->$/;"	f	module:rebar_deps
+update_source	src/rebar_deps.erl	/^update_source(AppDir, {git, _Url, Refspec}) ->$/;"	f	module:rebar_deps
+update_source	src/rebar_deps.erl	/^update_source(AppDir, {git, _Url, {branch, Branch}}) ->$/;"	f	module:rebar_deps
+update_source	src/rebar_deps.erl	/^update_source(AppDir, {git, _Url, {tag, Tag}}) ->$/;"	f	module:rebar_deps
+update_source	src/rebar_deps.erl	/^update_source(AppDir, {hg, _Url, Rev}) ->$/;"	f	module:rebar_deps
+update_source	src/rebar_deps.erl	/^update_source(AppDir, {rsync, Url}) ->$/;"	f	module:rebar_deps
+update_source	src/rebar_deps.erl	/^update_source(AppDir, {svn, _Url, Rev}) ->$/;"	f	module:rebar_deps
+update_source	src/rebar_deps.erl	/^update_source(Dep) ->$/;"	f	module:rebar_deps
+update_vars	src/rebar_templater.erl	/^update_vars([Key | Rest], Dict) ->$/;"	f	module:rebar_templater
+update_vars	src/rebar_templater.erl	/^update_vars([], Dict) ->$/;"	f	module:rebar_templater
+upgrade	priv/templates/simplenode.windows.runner.cmd	/^:upgrade$/;"	l
+upgraded_app	src/rebar_appups.erl	/^upgraded_app(AppName, OldAppVer, NewAppVer) when OldAppVer \/= NewAppVer ->$/;"	f	module:rebar_appups
+upgraded_app	src/rebar_appups.erl	/^upgraded_app(_, _, _) ->$/;"	f	module:rebar_appups
+usage	priv/templates/simplenode.windows.runner.cmd	/^:usage$/;"	l
+usage	src/getopt.erl	/^usage(OptSpecList, ProgramName) ->$/;"	f	module:getopt
+usage	src/getopt.erl	/^usage(OptSpecList, ProgramName, CmdLineTail) ->$/;"	f	module:getopt
+usage	src/getopt.erl	/^usage(OptSpecList, ProgramName, CmdLineTail, OptionsTail) ->$/;"	f	module:getopt
+usage	src/getopt.erl	/^usage(OptSpecList, ProgramName, CmdLineTail, OptionsTail, OutputStream) ->$/;"	f	module:getopt
+usage	src/getopt.erl	/^usage(OptSpecList, ProgramName, CmdLineTail, OutputStream) when is_atom(OutputStream) ->$/;"	f	module:getopt
+usage	src/getopt.erl	/^usage(OptSpecList, ProgramName, OutputStream) when is_atom(OutputStream) ->$/;"	f	module:getopt
+usage_cmd_line	src/getopt.erl	/^usage_cmd_line(OptSpecList) ->$/;"	f	module:getopt
+usage_cmd_line	src/getopt.erl	/^usage_cmd_line([], Acc) ->$/;"	f	module:getopt
+usage_cmd_line	src/getopt.erl	/^usage_cmd_line([{Name, Short, Long, ArgSpec, _Help} | Tail], Acc) ->$/;"	f	module:getopt
+usage_options	src/getopt.erl	/^usage_options(OptSpecList) ->$/;"	f	module:getopt
+usage_options_reverse	src/getopt.erl	/^usage_options_reverse([], Acc) ->$/;"	f	module:getopt
+usage_options_reverse	src/getopt.erl	/^usage_options_reverse([{Name, Short, Long, _ArgSpec, Help} | Tail], Acc) ->$/;"	f	module:getopt
+use_source	src/rebar_deps.erl	/^use_source(Dep) ->$/;"	f	module:rebar_deps
+use_source	src/rebar_deps.erl	/^use_source(Dep, 0) ->$/;"	f	module:rebar_deps
+use_source	src/rebar_deps.erl	/^use_source(Dep, Count) ->$/;"	f	module:rebar_deps
+valid_level	src/rebar_log.erl	/^valid_level(Level) ->$/;"	f	module:rebar_log
+validate_modules	src/rebar_otp_app.erl	/^validate_modules(AppName, Mods) ->$/;"	f	module:rebar_otp_app
+validate_modules	src/rebar_otp_app.erl	/^validate_modules(AppName, undefined) ->$/;"	f	module:rebar_otp_app
+validate_name	src/rebar_otp_app.erl	/^validate_name(AppName, File) ->$/;"	f	module:rebar_otp_app
+validate_rel_apps	src/rebar_reltool.erl	/^validate_rel_apps(ReltoolServer, {sys, ReltoolConfig}) ->$/;"	f	module:rebar_reltool
+vcs_client_vsn	src/rebar_deps.erl	/^vcs_client_vsn(Path, VsnArg, VsnRegex) ->$/;"	f	module:rebar_deps
+vcs_client_vsn	src/rebar_deps.erl	/^vcs_client_vsn(bzr) ->$/;"	f	module:rebar_deps
+vcs_client_vsn	src/rebar_deps.erl	/^vcs_client_vsn(false, _VsnArg, _VsnRegex) ->$/;"	f	module:rebar_deps
+vcs_client_vsn	src/rebar_deps.erl	/^vcs_client_vsn(git) ->$/;"	f	module:rebar_deps
+vcs_client_vsn	src/rebar_deps.erl	/^vcs_client_vsn(hg) ->$/;"	f	module:rebar_deps
+vcs_client_vsn	src/rebar_deps.erl	/^vcs_client_vsn(rsync) ->$/;"	f	module:rebar_deps
+vcs_client_vsn	src/rebar_deps.erl	/^vcs_client_vsn(svn) ->$/;"	f	module:rebar_deps
+vcs_vsn	src/rebar_utils.erl	/^vcs_vsn(Vcs, Dir) ->$/;"	f	module:rebar_utils
+vcs_vsn_1	src/rebar_utils.erl	/^vcs_vsn_1(Vcs, Dir) ->$/;"	f	module:rebar_utils
+vcs_vsn_cmd	src/rebar_utils.erl	/^vcs_vsn_cmd(Version) -> {unknown, Version}.$/;"	f	module:rebar_utils
+vcs_vsn_cmd	src/rebar_utils.erl	/^vcs_vsn_cmd(bzr) -> "bzr revno";$/;"	f	module:rebar_utils
+vcs_vsn_cmd	src/rebar_utils.erl	/^vcs_vsn_cmd(git) ->$/;"	f	module:rebar_utils
+vcs_vsn_cmd	src/rebar_utils.erl	/^vcs_vsn_cmd(hg)  -> "hg identify -i";$/;"	f	module:rebar_utils
+vcs_vsn_cmd	src/rebar_utils.erl	/^vcs_vsn_cmd(svn) -> "svnversion";$/;"	f	module:rebar_utils
+vcs_vsn_cmd	src/rebar_utils.erl	/^vcs_vsn_cmd({cmd, _Cmd}=Custom) -> Custom;$/;"	f	module:rebar_utils
+vcs_vsn_invoke	src/rebar_utils.erl	/^vcs_vsn_invoke(Cmd, Dir) ->$/;"	f	module:rebar_utils
+version	src/rebar.erl	/^version                              Show version information$/;"	f	module:rebar
+version	src/rebar.erl	/^version() ->$/;"	f	module:rebar
+vm_args	priv/templates/simplenode.windows.runner.cmd	/^@set vm_args=%releases_dir%\\%release_version%\\vm.args$/;"	v
+vm_args	priv/templates/simplenode.windows.start_erl.cmd	/^    @set vm_args=%node_root%\\etc\\vm.args$/;"	v
+vm_args	priv/templates/simplenode.windows.start_erl.cmd	/^    @set vm_args=%releases_dir%\\%release_version%\\vm.args$/;"	v
+wait_until_dead	src/rebar_eunit.erl	/^wait_until_dead(Pid) when is_pid(Pid) ->$/;"	f	module:rebar_eunit
+wait_until_dead	src/rebar_eunit.erl	/^wait_until_dead(_) ->$/;"	f	module:rebar_eunit
+wordsize	src/rebar_utils.erl	/^wordsize() ->$/;"	f	module:rebar_utils
+write_file	src/rebar_templater.erl	/^write_file(Output, Data, Force) ->$/;"	f	module:rebar_templater
+xcopy_win32	src/rebar_file_utils.erl	/^xcopy_win32(Source,Dest)->$/;"	f	module:rebar_file_utils
+xref	src/rebar.erl	/^xref                                 Run cross reference analysis$/;"	f	module:rebar
+xref	src/rebar_xref.erl	/^xref(Config, _) ->$/;"	f	module:rebar_xref
