@@ -166,7 +166,7 @@ compile_queue(Pids, Targets) ->
 
         {compiled, Source, Warnings} ->
             report(Warnings),
-            ?CONSOLE("Compiled ~s\n", [Source]),
+            ?CONSOLE_GREEN("Compiled ~s\n", [Source]),
             compile_queue(Pids, Targets);
 
         {compiled, Source} ->
