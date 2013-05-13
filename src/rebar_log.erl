@@ -30,6 +30,8 @@
          set_level/1, default_level/0,
          log/3]).
 
+-include("rebar.hrl").
+
 %% ===================================================================
 %% Public API
 %% ===================================================================
@@ -50,7 +52,11 @@ log(Level, Str, Args) ->
     {ok, LogLevel} = application:get_env(rebar, log_level),
     case should_log(LogLevel, Level) of
         true ->
-            io:format(log_prefix(Level) ++ Str, Args);
+            PrintStr = log_prefix(Level) ++ Str,
+            case LogLevel of
+                error -> ?CONSOLE_RED(PrintStr, Args);
+                    _ -> io:format(PrintStr, Args)
+            end;
         false ->
             ok
     end.
