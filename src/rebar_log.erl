@@ -39,6 +39,8 @@
 -define(INFO_LEVEL,  2).
 -define(DEBUG_LEVEL, 3).
 
+-include("rebar.hrl").
+
 %% ===================================================================
 %% Public API
 %% ===================================================================
@@ -62,7 +64,12 @@ log(Device, Level, Str, Args) ->
     {ok, LogLevel} = application:get_env(rebar, log_level),
     case should_log(LogLevel, Level) of
         true ->
-            io:format(Device, log_prefix(Level) ++ Str, Args);
+            PrintStr = log_prefix(Level) ++ Str,
+            case LogLevel of
+                         % note, errors aren't going to Device
+                error -> ?CONSOLE_RED(PrintStr, Args);
+                    _ -> io:format(Device, PrintStr, Args)
+            end;
         false ->
             ok
     end.

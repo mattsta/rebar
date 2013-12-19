@@ -124,6 +124,7 @@ process_dir(Dir, ParentConfig, Command, DirSet) ->
             {ParentConfig, DirSet};
 
         true ->
+            ?CONSOLE_BLUE("==> Entering directory `~s'\n", [Dir]),
             ok = file:set_cwd(Dir),
             Config = maybe_load_local_config(Dir, ParentConfig),
 
@@ -138,8 +139,10 @@ process_dir(Dir, ParentConfig, Command, DirSet) ->
             %% to process this dir.
             {ok, AvailModuleSets} = application:get_env(rebar, modules),
             ModuleSet = choose_module_set(AvailModuleSets, Dir),
-            skip_or_process_dir(ModuleSet, Config, CurrentCodePath,
-                                Dir, Command, DirSet)
+            Result = skip_or_process_dir(ModuleSet, Config, CurrentCodePath,
+                              Dir, Command, DirSet),
+            ?CONSOLE_BLUE("==> Leaving directory `~s'\n", [Dir]),
+            Result
     end.
 
 skip_or_process_dir({[], undefined}=ModuleSet, Config, CurrentCodePath,
@@ -362,7 +365,7 @@ execute(Command, Modules, Config, ModuleFile, Env) ->
         TargetModules ->
             %% Provide some info on where we are
             Dir = rebar_utils:get_cwd(),
-            ?CONSOLE("==> ~s (~s)\n", [filename:basename(Dir), Command]),
+            ?CONSOLE_YELLOW("==> ~s (~s)\n", [filename:basename(Dir), Command]),
 
             Config1 = increment_operations(Config),
 
