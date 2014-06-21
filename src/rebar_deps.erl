@@ -457,8 +457,8 @@ is_app_available(Config, App, VsnRegex, Path, _IsRaw = false) ->
                               {AppFile, {expected, App}, {has, OtherApp}}}}}
             end;
         false ->
-            ?WARN("Expected ~s to be an app dir (containing ebin/*.app), "
-                  "but no .app found.\n", [Path]),
+            ?DEBUG("Expected ~s to be an app dir (containing ebin/*.app), "
+                   "but no .app found.\n", [Path]),
             {Config, {false, {missing_app_file, Path}}}
     end;
 is_app_available(Config, App, _VsnRegex, Path, _IsRaw = true) ->
@@ -471,8 +471,8 @@ is_app_available(Config, App, _VsnRegex, Path, _IsRaw = true) ->
             %% to rebar_utils:vcs_vsn/2 to obtain version dynamically
             {Config, {true, Path}};
         false ->
-            ?WARN("Expected ~s to be a raw dependency directory, "
-                  "but no directory found.\n", [Path]),
+            ?DEBUG("Expected ~s to be a raw dependency directory, "
+                   "but no directory found.\n", [Path]),
             {Config, {false, {missing_raw_dependency_directory, Path}}}
     end.
 
