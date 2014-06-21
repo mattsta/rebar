@@ -31,6 +31,7 @@
          get_all/2,
          set/3,
          set_global/3, get_global/3,
+         is_recursive/1,
          save_env/3, get_env/2, reset_envs/1,
          set_skip_dir/2, is_skip_dir/2, reset_skip_dirs/1,
          clean_config/2,
@@ -38,13 +39,21 @@
 
 -include("rebar.hrl").
 
+-ifdef(namespaced_types).
+% dict:dict() exists starting from Erlang 17.
+-type rebar_dict() :: dict:dict().
+-else.
+% dict() has been obsoleted in Erlang 17 and deprecated in 18.
+-type rebar_dict() :: dict().
+-endif.
+
 -record(config, { dir :: file:filename(),
                   opts = [] :: list(),
-                  globals = new_globals() :: dict(),
-                  envs = new_env() :: dict(),
+                  globals = new_globals() :: rebar_dict(),
+                  envs = new_env() :: rebar_dict(),
                   %% cross-directory/-command config
-                  skip_dirs = new_skip_dirs() :: dict(),
-                  xconf = new_xconf() :: dict() }).
+                  skip_dirs = new_skip_dirs() :: rebar_dict(),
+                  xconf = new_xconf() :: rebar_dict() }).
 
 -export_type([config/0]).
 
@@ -108,6 +117,9 @@ get_global(Config, Key, Default) ->
         {ok, Value} ->
             Value
     end.
+
+is_recursive(Config) ->
+    get_xconf(Config, recursive, false).
 
 consult_file(File) ->
     case filename:extension(File) of

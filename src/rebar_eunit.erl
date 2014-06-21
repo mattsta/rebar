@@ -84,8 +84,7 @@ eunit(Config, _AppFile) ->
     ok = ensure_dirs(),
     %% Save code path
     CodePath = setup_code_path(),
-    CompileOnly = rebar_utils:get_experimental_global(Config, compile_only,
-                                                      false),
+    CompileOnly = rebar_config:get_global(Config, compile_only, false),
     {ok, SrcErls} = rebar_erlc_compiler:test_compile(Config, "eunit",
                                                      ?EUNIT_DIR),
     case CompileOnly of
@@ -121,12 +120,16 @@ info_help(Description) ->
        "  ~p~n"
        "  ~p~n"
        "Valid command line options:~n"
-       "  suites=\"foo,bar\" (Run tests in foo.erl, test/foo_tests.erl and~n"
+       "  suite[s]=\"foo,bar\" (Run tests in foo.erl, test/foo_tests.erl and~n"
        "                    tests in bar.erl, test/bar_tests.erl)~n"
-       "  tests=\"baz\" (For every existing suite, run the first test whose~n"
+       "  test[s]=\"baz\" (For every existing suite, run the first test whose~n"
        "               name starts with bar and, if no such test exists,~n"
        "               run the test whose name starts with bar in the~n"
-       "               suite's _tests module)~n",
+       "               suite's _tests module)~n"
+       "  random_suite_order=true (Run tests in random order)~n"
+       "  random_suite_order=Seed (Run tests in random order,~n"
+       "                           with the PRNG seeded with Seed)~n"
+       "  compile_only=true (Compile but do not run tests)",
        [
         Description,
         {eunit_opts, []},
@@ -150,24 +153,24 @@ run_eunit(Config, CodePath, SrcErls) ->
                         AllBeamFiles),
     OtherBeamFiles = TestBeamFiles --
         [filename:rootname(N) ++ "_tests.beam" || N <- AllBeamFiles],
-    ModuleBeamFiles = BeamFiles ++ OtherBeamFiles,
+    ModuleBeamFiles = randomize_suites(Config, BeamFiles ++ OtherBeamFiles),
 
-    %% Get modules to be run in eunit
+    %% Get matching tests and modules
     AllModules = [rebar_utils:beam_to_mod(?EUNIT_DIR, N) || N <- AllBeamFiles],
-    {SuitesProvided, FilteredModules} = filter_suites(Config, AllModules),
-
-    %% Get matching tests
-    Tests = get_tests(Config, SuitesProvided, ModuleBeamFiles, FilteredModules),
+    {Tests, FilteredModules} =
+        get_tests_and_modules(Config, ModuleBeamFiles, AllModules),
 
     SrcModules = [rebar_utils:erl_to_mod(M) || M <- SrcErls],
 
-    {ok, CoverLog} = cover_init(Config, ModuleBeamFiles),
+    {ok, CoverLog} = rebar_cover_utils:init(Config, ModuleBeamFiles,
+                                            eunit_dir()),
 
     StatusBefore = status_before_eunit(),
     EunitResult = perform_eunit(Config, Tests),
 
-    perform_cover(Config, FilteredModules, SrcModules),
-    cover_close(CoverLog),
+    rebar_cover_utils:perform_cover(Config, FilteredModules, SrcModules,
+                                    eunit_dir()),
+    rebar_cover_utils:close(CoverLog),
 
     case proplists:get_value(reset_after_eunit, get_eunit_opts(Config),
                              true) of
@@ -179,7 +182,7 @@ run_eunit(Config, CodePath, SrcErls) ->
 
     %% Stop cover to clean the cover_server state. This is important if we want
     %% eunit+cover to not slow down when analyzing many Erlang modules.
-    ok = cover:stop(),
+    ok = rebar_cover_utils:exit(),
 
     case EunitResult of
         ok ->
@@ -211,68 +214,148 @@ setup_code_path() ->
     CodePath.
 
 %%
-%% == filter suites ==
+%% == get matching tests ==
+%%
+get_tests_and_modules(Config, ModuleBeamFiles, AllModules) ->
+    SelectedSuites = get_selected_suites(Config, AllModules),
+    {Tests, QualifiedTests} = get_qualified_and_unqualified_tests(Config),
+    Modules = get_test_modules(SelectedSuites, Tests,
+                               QualifiedTests, ModuleBeamFiles),
+    FilteredModules = get_matching_modules(AllModules, Modules, QualifiedTests),
+    MatchedTests = get_matching_tests(Modules, Tests, QualifiedTests),
+    {MatchedTests, FilteredModules}.
+
+%%
+%% == get suites specified via 'suites' option ==
+%%
+get_selected_suites(Config, Modules) ->
+    RawSuites = get_suites(Config),
+    Suites = [list_to_atom(Suite) || Suite <- string:tokens(RawSuites, ",")],
+    [M || M <- Suites, lists:member(M, Modules)].
+
+get_suites(Config) ->
+    case rebar_config:get_global(Config, suites, "") of
+        "" ->
+            rebar_config:get_global(Config, suite, "");
+        Suites ->
+            Suites
+    end.
+
+get_qualified_and_unqualified_tests(Config) ->
+    RawFunctions = rebar_utils:get_experimental_global(Config, tests, ""),
+    FunctionNames = [FunctionName ||
+                        FunctionName <- string:tokens(RawFunctions, ",")],
+    get_qualified_and_unqualified_tests1(FunctionNames, [], []).
+
+get_qualified_and_unqualified_tests1([], Functions, QualifiedFunctions) ->
+    {Functions, QualifiedFunctions};
+get_qualified_and_unqualified_tests1([TestName|TestNames], Functions,
+                                     QualifiedFunctions) ->
+    case string:tokens(TestName, ":") of
+        [TestName] ->
+            Function = list_to_atom(TestName),
+            get_qualified_and_unqualified_tests1(
+              TestNames, [Function|Functions], QualifiedFunctions);
+        [ModuleName, FunctionName] ->
+            M = list_to_atom(ModuleName),
+            F = list_to_atom(FunctionName),
+            get_qualified_and_unqualified_tests1(TestNames, Functions,
+                                                 [{M, F}|QualifiedFunctions]);
+        _ ->
+            ?ABORT("Unsupported test function specification: ~s~n", [TestName])
+    end.
+
+%% Provide modules which are to be searched for tests.
+%% Several scenarios are possible:
+%%
+%% == randomize suites ==
 %%
 
-filter_suites(Config, Modules) ->
-    RawSuites = rebar_config:get_global(Config, suites, ""),
-    SuitesProvided = RawSuites =/= "",
-    Suites = [list_to_atom(Suite) || Suite <- string:tokens(RawSuites, ",")],
-    {SuitesProvided, filter_suites1(Modules, Suites)}.
+randomize_suites(Config, Modules) ->
+    case rebar_config:get_global(Config, random_suite_order, undefined) of
+        undefined ->
+            Modules;
+        "true" ->
+            Seed = crypto:rand_uniform(1, 65535),
+            randomize_suites1(Modules, Seed);
+        String ->
+            try list_to_integer(String) of
+                Seed ->
+                    randomize_suites1(Modules, Seed)
+            catch
+                error:badarg ->
+                    ?ERROR("Bad random seed provided: ~p~n", [String]),
+                    ?FAIL
+            end
+    end.
 
-filter_suites1(Modules, []) ->
-    Modules;
-filter_suites1(Modules, Suites) ->
-    [M || M <- Suites, lists:member(M, Modules)].
+randomize_suites1(Modules, Seed) ->
+    _ = random:seed(35, Seed, 1337),
+    ?CONSOLE("Randomizing suite order with seed ~b~n", [Seed]),
+    [X||{_,X} <- lists:sort([{random:uniform(), M} || M <- Modules])].
 
 %%
 %% == get matching tests ==
+%% 1) Specific tests have been provided and/or
+%% no unqualified tests have been specified and
+%% there were some qualified tests, then we can search for
+%% functions in specified suites (or in empty set of suites).
 %%
-get_tests(Config, SuitesProvided, ModuleBeamFiles, FilteredModules) ->
-    Modules = case SuitesProvided of
-                  false ->
-                      %% No specific suites have been provided, use
-                      %% ModuleBeamFiles which filters out "*_tests" modules
-                      %% so eunit won't doubly run them and cover only
-                      %% calculates coverage on production code. However,
-                      %% keep "*_tests" modules that are not automatically
-                      %% included by eunit.
-                      %%
-                      %% From 'Primitives' in the EUnit User's Guide
-                      %% http://www.erlang.org/doc/apps/eunit/chapter.html
-                      %% "In addition, EUnit will also look for another
-                      %% module whose name is ModuleName plus the suffix
-                      %% _tests, and if it exists, all the tests from that
-                      %% module will also be added. (If ModuleName already
-                      %% contains the suffix _tests, this is not done.) E.g.,
-                      %% the specification {module, mymodule} will run all
-                      %% tests in the modules mymodule and mymodule_tests.
-                      %% Typically, the _tests module should only contain
-                      %% test cases that use the public interface of the main
-                      %% module (and no other code)."
-                      [rebar_utils:beam_to_mod(?EUNIT_DIR, N) ||
-                          N <- ModuleBeamFiles];
-                  true ->
-                      %% Specific suites have been provided, return the
-                      %% filtered modules
-                      FilteredModules
-              end,
-    get_matching_tests(Config, Modules).
-
-get_matching_tests(Config, Modules) ->
-    RawFunctions = rebar_utils:get_experimental_global(Config, tests, ""),
-    Tests = [list_to_atom(F1) || F1 <- string:tokens(RawFunctions, ",")],
-    case Tests of
-        [] ->
-            Modules;
-        Functions ->
-            case get_matching_tests1(Modules, Functions, []) of
-                [] ->
-                    [];
-                RawTests ->
-                    make_test_primitives(RawTests)
-            end
+%% 2) Neither specific suites nor qualified test names have been
+%% provided use ModuleBeamFiles which filters out "*_tests"
+%% modules so EUnit won't doubly run them and cover only
+%% calculates coverage on production code. However,
+%% keep "*_tests" modules that are not automatically
+%% included by EUnit.
+%%
+%% From 'Primitives' in the EUnit User's Guide
+%% http://www.erlang.org/doc/apps/eunit/chapter.html
+%% "In addition, EUnit will also look for another
+%% module whose name is ModuleName plus the suffix
+%% _tests, and if it exists, all the tests from that
+%% module will also be added. (If ModuleName already
+%% contains the suffix _tests, this is not done.) E.g.,
+%% the specification {module, mymodule} will run all
+%% tests in the modules mymodule and mymodule_tests.
+%% Typically, the _tests module should only contain
+%% test cases that use the public interface of the main
+%% module (and no other code)."
+get_test_modules(SelectedSuites, Tests, QualifiedTests, ModuleBeamFiles) ->
+    SuitesProvided = SelectedSuites =/= [],
+    OnlyQualifiedTestsProvided = QualifiedTests =/= [] andalso Tests =:= [],
+    if
+        SuitesProvided orelse OnlyQualifiedTestsProvided ->
+            SelectedSuites;
+        true ->
+            [rebar_utils:beam_to_mod(?EUNIT_DIR, N) ||
+                N <- ModuleBeamFiles]
     end.
+
+get_matching_modules(AllModules, Modules, QualifiedTests) ->
+    ModuleFilterMapper =
+        fun({M, _}) ->
+                case lists:member(M, AllModules) of
+                    true -> {true, M};
+                    _-> false
+                end
+        end,
+    ModulesFromQualifiedTests = lists:zf(ModuleFilterMapper, QualifiedTests),
+    lists:usort(Modules ++ ModulesFromQualifiedTests).
+
+get_matching_tests(Modules, [], []) ->
+    Modules;
+get_matching_tests(Modules, [], QualifiedTests) ->
+    FilteredQualifiedTests = filter_qualified_tests(Modules, QualifiedTests),
+    lists:merge(Modules, make_test_primitives(FilteredQualifiedTests));
+get_matching_tests(Modules, Tests, QualifiedTests) ->
+    AllTests = lists:merge(QualifiedTests,
+                           get_matching_tests1(Modules, Tests, [])),
+    make_test_primitives(AllTests).
+
+filter_qualified_tests(Modules, QualifiedTests) ->
+    TestsFilter = fun({Module, _Function}) ->
+                          lists:all(fun(M) -> M =/= Module end, Modules) end,
+    lists:filter(TestsFilter, QualifiedTests).
 
 get_matching_tests1([], _Functions, TestFunctions) ->
     TestFunctions;
@@ -416,226 +499,6 @@ get_eunit_opts(Config) ->
                end,
 
     BaseOpts ++ rebar_config:get_list(Config, eunit_opts, []).
-
-%%
-%% == code coverage ==
-%%
-
-perform_cover(Config, BeamFiles, SrcModules) ->
-    perform_cover(rebar_config:get(Config, cover_enabled, false),
-                  Config, BeamFiles, SrcModules).
-
-perform_cover(false, _Config, _BeamFiles, _SrcModules) ->
-    ok;
-perform_cover(true, Config, BeamFiles, SrcModules) ->
-    cover_analyze(Config, BeamFiles, SrcModules).
-
-cover_analyze(_Config, [], _SrcModules) ->
-    ok;
-cover_analyze(Config, FilteredModules, SrcModules) ->
-    %% Generate coverage info for all the cover-compiled modules
-    Coverage = lists:flatten([cover_analyze_mod(M)
-                              || M <- FilteredModules,
-                                 cover:is_compiled(M) =/= false]),
-
-    %% Write index of coverage info
-    cover_write_index(lists:sort(Coverage), SrcModules),
-
-    %% Write coverage details for each file
-    lists:foreach(fun({M, _, _}) ->
-                          {ok, _} = cover:analyze_to_file(M, cover_file(M),
-                                                          [html])
-                  end, Coverage),
-
-    Index = filename:join([rebar_utils:get_cwd(), ?EUNIT_DIR, "index.html"]),
-    ?CONSOLE("Cover analysis: ~s\n", [Index]),
-
-    %% Export coverage data, if configured
-    case rebar_config:get(Config, cover_export_enabled, false) of
-        true ->
-            cover_export_coverdata();
-        false ->
-            ok
-    end,
-
-    %% Print coverage report, if configured
-    case rebar_config:get(Config, cover_print_enabled, false) of
-        true ->
-            cover_print_coverage(lists:sort(Coverage));
-        false ->
-            ok
-    end.
-
-cover_close(not_enabled) ->
-    ok;
-cover_close(F) ->
-    ok = file:close(F).
-
-cover_init(false, _BeamFiles) ->
-    {ok, not_enabled};
-cover_init(true, BeamFiles) ->
-    %% Attempt to start the cover server, then set its group leader to
-    %% .eunit/cover.log, so all cover log messages will go there instead of
-    %% to stdout. If the cover server is already started, we'll kill that
-    %% server and start a new one in order not to inherit a polluted
-    %% cover_server state.
-    {ok, CoverPid} = case whereis(cover_server) of
-                         undefined ->
-                             cover:start();
-                         _         ->
-                             cover:stop(),
-                             cover:start()
-                     end,
-
-    {ok, F} = OkOpen = file:open(
-                         filename:join([?EUNIT_DIR, "cover.log"]),
-                         [write]),
-
-    group_leader(F, CoverPid),
-
-    ?INFO("Cover compiling ~s\n", [rebar_utils:get_cwd()]),
-
-    Compiled = [{Beam, cover:compile_beam(Beam)} || Beam <- BeamFiles],
-    case [Module || {_, {ok, Module}} <- Compiled] of
-        [] ->
-            %% No modules compiled successfully...fail
-            ?ERROR("Cover failed to compile any modules; aborting.~n", []),
-            ?FAIL;
-        _ ->
-            %% At least one module compiled successfully
-
-            %% It's not an error for cover compilation to fail partially,
-            %% but we do want to warn about them
-            PrintWarning =
-                fun(Beam, Desc) ->
-                        ?CONSOLE("Cover compilation warning for ~p: ~p",
-                                 [Beam, Desc])
-                end,
-            _ = [PrintWarning(Beam, Desc) || {Beam, {error, Desc}} <- Compiled],
-            OkOpen
-    end;
-cover_init(Config, BeamFiles) ->
-    cover_init(rebar_config:get(Config, cover_enabled, false), BeamFiles).
-
-cover_analyze_mod(Module) ->
-    case cover:analyze(Module, coverage, module) of
-        {ok, {Module, {Covered, NotCovered}}} ->
-            %% Modules that include the eunit header get an implicit
-            %% test/0 fun, which cover considers a runnable line, but
-            %% eunit:test(TestRepresentation) never calls.  Decrement
-            %% NotCovered in this case.
-            [align_notcovered_count(Module, Covered, NotCovered,
-                                    is_eunitized(Module))];
-        {error, Reason} ->
-            ?ERROR("Cover analyze failed for ~p: ~p ~p\n",
-                   [Module, Reason, code:which(Module)]),
-            []
-    end.
-
-is_eunitized(Mod) ->
-    has_eunit_test_fun(Mod) andalso
-        has_header(Mod, "include/eunit.hrl").
-
-has_eunit_test_fun(Mod) ->
-    [F || {exports, Funs} <- Mod:module_info(),
-          {F, 0} <- Funs, F =:= test] =/= [].
-
-has_header(Mod, Header) ->
-    Mod1 = case code:which(Mod) of
-               cover_compiled ->
-                   {file, File} = cover:is_compiled(Mod),
-                   File;
-               non_existing -> Mod;
-               preloaded -> Mod;
-               L -> L
-           end,
-    {ok, {_, [{abstract_code, {_, AC}}]}} = beam_lib:chunks(Mod1,
-                                                            [abstract_code]),
-    [F || {attribute, 1, file, {F, 1}} <- AC,
-          string:str(F, Header) =/= 0] =/= [].
-
-align_notcovered_count(Module, Covered, NotCovered, false) ->
-    {Module, Covered, NotCovered};
-align_notcovered_count(Module, Covered, NotCovered, true) ->
-    {Module, Covered, NotCovered - 1}.
-
-cover_write_index(Coverage, SrcModules) ->
-    {ok, F} = file:open(filename:join([?EUNIT_DIR, "index.html"]), [write]),
-    ok = file:write(F, "<!DOCTYPE HTML><html>\n"
-                        "<head><meta charset=\"utf-8\">"
-                        "<title>Coverage Summary</title></head>\n"
-                        "<body>\n"),
-    IsSrcCoverage = fun({Mod,_C,_N}) -> lists:member(Mod, SrcModules) end,
-    {SrcCoverage, TestCoverage} = lists:partition(IsSrcCoverage, Coverage),
-    cover_write_index_section(F, "Source", SrcCoverage),
-    cover_write_index_section(F, "Test", TestCoverage),
-    ok = file:write(F, "</body></html>"),
-    ok = file:close(F).
-
-cover_write_index_section(_F, _SectionName, []) ->
-    ok;
-cover_write_index_section(F, SectionName, Coverage) ->
-    %% Calculate total coverage
-    {Covered, NotCovered} = lists:foldl(fun({_Mod, C, N}, {CAcc, NAcc}) ->
-                                                {CAcc + C, NAcc + N}
-                                        end, {0, 0}, Coverage),
-    TotalCoverage = percentage(Covered, NotCovered),
-
-    %% Write the report
-    ok = file:write(F, ?FMT("<h1>~s Summary</h1>\n", [SectionName])),
-    ok = file:write(F, ?FMT("<h3>Total: ~s</h3>\n", [TotalCoverage])),
-    ok = file:write(F, "<table><tr><th>Module</th><th>Coverage %</th></tr>\n"),
-
-    FmtLink =
-        fun(Module, Cov, NotCov) ->
-                ?FMT("<tr><td><a href='~s.COVER.html'>~s</a></td><td>~s</td>\n",
-                     [Module, Module, percentage(Cov, NotCov)])
-        end,
-    lists:foreach(fun({Module, Cov, NotCov}) ->
-                          ok = file:write(F, FmtLink(Module, Cov, NotCov))
-                  end, Coverage),
-    ok = file:write(F, "</table>\n").
-
-cover_print_coverage(Coverage) ->
-    {Covered, NotCovered} = lists:foldl(fun({_Mod, C, N}, {CAcc, NAcc}) ->
-                                                {CAcc + C, NAcc + N}
-                                        end, {0, 0}, Coverage),
-    TotalCoverage = percentage(Covered, NotCovered),
-
-    %% Determine the longest module name for right-padding
-    Width = lists:foldl(fun({Mod, _, _}, Acc) ->
-                                case length(atom_to_list(Mod)) of
-                                    N when N > Acc ->
-                                        N;
-                                    _ ->
-                                        Acc
-                                end
-                        end, 0, Coverage) * -1,
-
-    %% Print the output the console
-    ?CONSOLE("~nCode Coverage:~n", []),
-    lists:foreach(fun({Mod, C, N}) ->
-                          ?CONSOLE("~*s : ~3s~n",
-                                   [Width, Mod, percentage(C, N)])
-                  end, Coverage),
-    ?CONSOLE("~n~*s : ~s~n", [Width, "Total", TotalCoverage]).
-
-cover_file(Module) ->
-    filename:join([?EUNIT_DIR, atom_to_list(Module) ++ ".COVER.html"]).
-
-cover_export_coverdata() ->
-    ExportFile = filename:join(eunit_dir(), "eunit.coverdata"),
-    case cover:export(ExportFile) of
-        ok ->
-            ?CONSOLE("Coverdata export: ~s~n", [ExportFile]);
-        {error, Reason} ->
-            ?ERROR("Coverdata export failed: ~p~n", [Reason])
-    end.
-
-percentage(0, 0) ->
-    "not executed";
-percentage(Cov, NotCov) ->
-    integer_to_list(trunc((Cov / (Cov + NotCov)) * 100)) ++ "%".
 
 %%
 %% == reset_after_eunit ==

@@ -27,6 +27,7 @@
 -module(rebar_templater).
 
 -export(['create-app'/2,
+         'create-lib'/2,
          'create-node'/2,
          'list-templates'/2,
          create/2]).
@@ -49,6 +50,10 @@
 'create-app'(Config, _File) ->
     %% Alias for create w/ template=simpleapp
     create1(Config, "simpleapp").
+
+'create-lib'(Config, _File) ->
+    %% Alias for create w/ template=simplelib
+    create1(Config, "simplelib").
 
 'create-node'(Config, _File) ->
     %% Alias for create w/ template=simplenode
@@ -98,7 +103,7 @@ render(Bin, Context) ->
     ReOpts = [global, {return, list}],
     Str0 = re:replace(Bin, "\\\\", "\\\\\\", ReOpts),
     Str1 = re:replace(Str0, "\"", "\\\\\"", ReOpts),
-    mustache:render(Str1, Context).
+    rebar_mustache:render(Str1, Context).
 
 %% ===================================================================
 %% Internal functions
@@ -116,6 +121,12 @@ info(help, 'create-app') ->
        "~n"
        "Valid command line options:~n"
        "  [appid=myapp]~n", []);
+info(help, 'create-lib') ->
+    ?CONSOLE(
+       "Create simple lib skel.~n"
+       "~n"
+       "Valid command line options:~n"
+       "  [libid=mylib]~n", []);
 info(help, 'create-node') ->
     ?CONSOLE(
        "Create simple node skel.~n"
@@ -234,7 +245,8 @@ find_disk_templates(Config) ->
     HomeFiles = rebar_utils:find_files(filename:join([os:getenv("HOME"),
                                                       ".rebar", "templates"]),
                                        ?TEMPLATE_RE),
-    LocalFiles = rebar_utils:find_files(".", ?TEMPLATE_RE),
+    Recursive = rebar_config:is_recursive(Config),
+    LocalFiles = rebar_utils:find_files(".", ?TEMPLATE_RE, Recursive),
     [{file, F} || F <- OtherTemplates ++ HomeFiles ++ LocalFiles].
 
 find_other_templates(Config) ->
@@ -383,6 +395,18 @@ execute_template(Files, [{'if', Cond, True, False} | Rest], TemplateType,
                            False
                    end,
     execute_template(Files, prepend_instructions(Instructions, Rest),
+                     TemplateType, TemplateName, Context, Force,
+                     ExistingFiles);
+execute_template(Files, [{'case', Variable, Values, Instructions} | Rest], TemplateType,
+                 TemplateName, Context, Force, ExistingFiles) ->
+    {ok, Value} = dict:find(Variable, Context),
+    Instructions2 = case lists:member(Value, Values) of
+                       true ->
+                           Instructions;
+                       _ ->
+                           []
+                   end,
+    execute_template(Files, prepend_instructions(Instructions2, Rest),
                      TemplateType, TemplateName, Context, Force,
                      ExistingFiles);
 execute_template(Files, [{template, Input, Output} | Rest], TemplateType,

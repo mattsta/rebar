@@ -5,6 +5,9 @@
 
 %% == Core ==
 
+%% Extend list of always recursive commands
+{recursive_cmds, []}.
+
 %% Check required ERTS or OTP release version
 {require_erts_vsn, ".*"}.
 {require_otp_vsn, ".*"}.
@@ -18,7 +21,7 @@
 %% Erlang files to compile before the rest. Rebar automatically compiles
 %% parse_transforms and custom behaviours before anything other than the files
 %% in this list.
-{erl_first_files, ["mymib1", "mymib2"]}.
+{erl_first_files, ["src/mymib1.erl", "src/mymib2.erl"]}.
 
 %% Erlang compiler options
 {erl_opts, [no_debug_info,
@@ -152,7 +155,7 @@
 %% name as an atom, eg. mochiweb, a name and a version (from the .app file), or
 %% an application name, a version and the SCM details on how to fetch it (SCM
 %% type, location and revision).
-%% Rebar currently supports git, hg, bzr, svn, rsync, and fossil.
+%% Rebar currently supports git, hg, bzr, svn, rsync, fossil, and p4.
 {deps, [app_name,
         {rebar, "1.0.*"},
         {rebar, ".*",
@@ -185,7 +188,8 @@
         {app_name, ".*", {svn, "svn://svn.example.org/url"}},
         {app_name, ".*", {bzr, "https://www.example.org/url", "Rev"}},
         {app_name, ".*", {fossil, "https://www.example.org/url"}},
-        {app_name, ".*", {fossil, "https://www.example.org/url", "Vsn"}}]}.
+        {app_name, ".*", {fossil, "https://www.example.org/url", "Vsn"}},
+        {app_name, ".*", {p4, "//depot/subdir/app_dir"}}]}.
 
 %% == Subdirectories ==
 
@@ -220,6 +224,11 @@
 %% == xref ==
 
 {xref_warnings, false}.
+
+%% optional extra paths to include in xref:set_library_path/2.
+%% specified relative location of rebar.config.
+%% e.g. {xref_extra_paths,["../gtknode/src"]}
+{xref_extra_paths,[]}.
 
 %% xref checks to run
 {xref_checks, [undefined_function_calls, undefined_functions,

@@ -31,6 +31,7 @@
          get_arch/0,
          wordsize/0,
          sh/2,
+         sh_send/3,
          find_files/2, find_files/3,
          now_str/0,
          ensure_dir/1,
@@ -52,7 +53,9 @@
          erl_opts/1,
          src_dirs/1,
          ebin_dir/0,
-         processing_base_dir/1, processing_base_dir/2]).
+         base_dir/1,
+         processing_base_dir/1, processing_base_dir/2,
+         patch_env/2]).
 
 -include("rebar.hrl").
 
@@ -85,6 +88,24 @@ wordsize() ->
         error:badarg ->
             integer_to_list(8 * erlang:system_info(wordsize))
     end.
+
+sh_send(Command0, String, Options0) ->
+    ?INFO("sh_send info:\n\tcwd: ~p\n\tcmd: ~s < ~s\n", [get_cwd(), Command0, String]),
+    ?DEBUG("\topts: ~p\n", [Options0]),
+
+    DefaultOptions = [use_stdout, abort_on_error],
+    Options = [expand_sh_flag(V)
+               || V <- proplists:compact(Options0 ++ DefaultOptions)],
+
+    Command = patch_on_windows(Command0, proplists:get_value(env, Options, [])),
+    PortSettings = proplists:get_all_values(port_settings, Options) ++
+        [exit_status, {line, 16384}, use_stdio, stderr_to_stdout, hide],
+    Port = open_port({spawn, Command}, PortSettings),
+
+    %% allow us to send some data to the shell command's STDIN
+    %% Erlang doesn't let us get any reply after sending an EOF, though...
+    Port ! {self(), {command, String}},
+    port_close(Port).
 
 %%
 %% Options = [Option] -- defaults to [use_stdout, abort_on_error]
@@ -307,12 +328,33 @@ src_dirs(SrcDirs) ->
 ebin_dir() ->
     filename:join(get_cwd(), "ebin").
 
+base_dir(Config) ->
+    rebar_config:get_xconf(Config, base_dir).
+
 processing_base_dir(Config) ->
     Cwd = rebar_utils:get_cwd(),
     processing_base_dir(Config, Cwd).
 
 processing_base_dir(Config, Dir) ->
-    Dir =:= rebar_config:get_xconf(Config, base_dir).
+    AbsDir = filename:absname(Dir),
+    AbsDir =:= base_dir(Config).
+
+%% @doc Returns the list of environment variables including 'REBAR' which points to the
+%% rebar executable used to execute the currently running command. The environment is
+%% not modified if rebar was invoked programmatically.
+-spec patch_env(rebar_config:config(), [{string(), string()}]) -> [{string(), string()}].
+patch_env(Config, []) ->
+    % if we reached an empty list the env did not contain the REBAR variable
+    case rebar_config:get_xconf(Config, escript, "") of
+        "" -> % rebar was invoked programmatically
+            [];
+        Path ->
+            [{"REBAR", Path}]
+    end;
+patch_env(_Config, [{"REBAR", _} | _]=All) ->
+    All;
+patch_env(Config, [E | Rest]) ->
+    [E | patch_env(Config, Rest)].
 
 %% ====================================================================
 %% Internal functions
@@ -394,8 +436,9 @@ log_msg_and_abort(Message) ->
 
 -spec log_and_abort(string(), {integer(), string()}) -> no_return().
 log_and_abort(Command, {Rc, Output}) ->
-    ?ABORT("~s failed with error: ~w and output:~n~s~n",
-           [Command, Rc, Output]).
+    ?ABORT("sh(~s)~n"
+           "failed with return code ~w and the following output:~n"
+           "~s~n", [Command, Rc, Output]).
 
 sh_loop(Port, Fun, Acc) ->
     receive
@@ -474,6 +517,7 @@ vcs_vsn_1(Vcs, Dir) ->
     end.
 
 vcs_vsn_cmd(git)    -> "git describe --always --tags";
+vcs_vsn_cmd(p4)     -> "echo #head";
 vcs_vsn_cmd(hg)     -> "hg identify -i";
 vcs_vsn_cmd(bzr)    -> "bzr revno";
 vcs_vsn_cmd(svn)    -> "svnversion";
